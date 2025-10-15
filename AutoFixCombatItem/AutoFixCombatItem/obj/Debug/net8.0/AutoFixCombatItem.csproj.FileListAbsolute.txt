@@ -1,0 +1,13 @@
+J:\taiwu备份\太吾文档\Taiwu-mod\AutoFixCombatItem\AutoFixCombatItem\bin\Debug\net8.0\AutoFixCombatItem.deps.json
+J:\taiwu备份\太吾文档\Taiwu-mod\AutoFixCombatItem\AutoFixCombatItem\bin\Debug\net8.0\AutoFixCombatItem.dll
+J:\taiwu备份\太吾文档\Taiwu-mod\AutoFixCombatItem\AutoFixCombatItem\bin\Debug\net8.0\AutoFixCombatItem.pdb
+J:\taiwu备份\太吾文档\Taiwu-mod\AutoFixCombatItem\AutoFixCombatItem\obj\Debug\net8.0\AutoFixCombatItem.csproj.AssemblyReference.cache
+J:\taiwu备份\太吾文档\Taiwu-mod\AutoFixCombatItem\AutoFixCombatItem\obj\Debug\net8.0\AutoFixCombatItem.GeneratedMSBuildEditorConfig.editorconfig
+J:\taiwu备份\太吾文档\Taiwu-mod\AutoFixCombatItem\AutoFixCombatItem\obj\Debug\net8.0\AutoFixCombatItem.AssemblyInfoInputs.cache
+J:\taiwu备份\太吾文档\Taiwu-mod\AutoFixCombatItem\AutoFixCombatItem\obj\Debug\net8.0\AutoFixCombatItem.AssemblyInfo.cs
+J:\taiwu备份\太吾文档\Taiwu-mod\AutoFixCombatItem\AutoFixCombatItem\obj\Debug\net8.0\AutoFixCombatItem.csproj.CoreCompileInputs.cache
+J:\taiwu备份\太吾文档\Taiwu-mod\AutoFixCombatItem\AutoFixCombatItem\obj\Debug\net8.0\AutoFixCombatItem.sourcelink.json
+J:\taiwu备份\太吾文档\Taiwu-mod\AutoFixCombatItem\AutoFixCombatItem\obj\Debug\net8.0\AutoFixCombatItem.dll
+J:\taiwu备份\太吾文档\Taiwu-mod\AutoFixCombatItem\AutoFixCombatItem\obj\Debug\net8.0\refint\AutoFixCombatItem.dll
+J:\taiwu备份\太吾文档\Taiwu-mod\AutoFixCombatItem\AutoFixCombatItem\obj\Debug\net8.0\AutoFixCombatItem.pdb
+J:\taiwu备份\太吾文档\Taiwu-mod\AutoFixCombatItem\AutoFixCombatItem\obj\Debug\net8.0\ref\AutoFixCombatItem.dll

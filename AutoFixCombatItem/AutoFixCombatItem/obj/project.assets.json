@@ -1,36 +1,36 @@
 {
   "version": 3,
   "targets": {
-    "net9.0": {}
+    "net6.0": {}
   },
   "libraries": {},
   "projectFileDependencyGroups": {
-    "net9.0": []
+    "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Lazy\\.nuget\\packages\\": {}
+    "C:\\Users\\97452\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MyProj\\TaiwuMod\\AutoFixCombatItem\\AutoFixCombatItem\\AutoFixCombatItem\\AutoFixCombatItem.csproj",
+      "projectUniqueName": "J:\\taiwu备份\\太吾文档\\Taiwu-mod\\AutoFixCombatItem\\AutoFixCombatItem\\AutoFixCombatItem.csproj",
       "projectName": "AutoFixCombatItem",
-      "projectPath": "D:\\MyProj\\TaiwuMod\\AutoFixCombatItem\\AutoFixCombatItem\\AutoFixCombatItem\\AutoFixCombatItem.csproj",
-      "packagesPath": "C:\\Users\\Lazy\\.nuget\\packages\\",
-      "outputPath": "D:\\MyProj\\TaiwuMod\\AutoFixCombatItem\\AutoFixCombatItem\\AutoFixCombatItem\\obj\\",
+      "projectPath": "J:\\taiwu备份\\太吾文档\\Taiwu-mod\\AutoFixCombatItem\\AutoFixCombatItem\\AutoFixCombatItem.csproj",
+      "packagesPath": "C:\\Users\\97452\\.nuget\\packages\\",
+      "outputPath": "J:\\taiwu备份\\太吾文档\\Taiwu-mod\\AutoFixCombatItem\\AutoFixCombatItem\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Lazy\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\97452\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
-        "net9.0"
+        "net6.0"
       ],
       "sources": {
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net9.0": {
-          "targetAlias": "net9.0",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "projectReferences": {}
         }
       },
@@ -44,11 +44,11 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
-      "net9.0": {
-        "targetAlias": "net9.0",
+      "net6.0": {
+        "targetAlias": "net6.0",
         "imports": [
           "net461",
           "net462",
@@ -60,12 +60,26 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.36, 6.0.36]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[6.0.36, 6.0.36]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[6.0.36, 6.0.36]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\Lazy\\.dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\97452\\.dotnet\\sdk\\9.0.305\\RuntimeIdentifierGraph.json"
       }
     }
   }
