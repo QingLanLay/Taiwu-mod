@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="0Harmony">
+        <HintPath>..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\The Scroll of Taiwu_Data\Managed\0Harmony.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData">
+        <HintPath>..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\GameData.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData.Combat.Math">
+        <HintPath>..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\The Scroll of Taiwu_Data\Managed\GameData.Combat.Math.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData.Common">
+        <HintPath>..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\The Scroll of Taiwu_Data\Managed\GameData.Common.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData.Common.Algorithm">
+        <HintPath>..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\The Scroll of Taiwu_Data\Managed\GameData.Common.Algorithm.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData.Serializer">
+        <HintPath>..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\GameData.Serializer.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData.Shared">
+        <HintPath>..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\GameData.Shared.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData.Utilities">
+        <HintPath>..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\GameData.Utilities.dll</HintPath>
+      </Reference>
+      <Reference Include="TaiwuModdingLib">
+        <HintPath>..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\The Scroll of Taiwu_Data\Managed\TaiwuModdingLib.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="CunstomPeiRanJueFront.cs" />
+    </ItemGroup>
+
+</Project>

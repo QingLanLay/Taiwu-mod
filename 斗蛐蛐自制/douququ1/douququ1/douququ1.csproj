@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="GameData">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\GameData.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData.Shared">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\GameData.Shared.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData.Utilities">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\GameData.Utilities.dll</HintPath>
+      </Reference>
+      <Reference Include="System">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+</Project>
