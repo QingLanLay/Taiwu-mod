@@ -1,0 +1,50 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETFramework,Version=v4.8": {}
+  },
+  "libraries": {},
+  "projectFileDependencyGroups": {
+    ".NETFramework,Version=v4.8": []
+  },
+  "packageFolders": {
+    "C:\\Users\\97452\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "J:\\taiwu备份\\太吾文档\\Mod\\更好的沛然诀\\CustomPeiRanJueFront\\CustomPeiRanJueFront\\CustomPeiRanJueFront.csproj",
+      "projectName": "CustomPeiRanJueFront",
+      "projectPath": "J:\\taiwu备份\\太吾文档\\Mod\\更好的沛然诀\\CustomPeiRanJueFront\\CustomPeiRanJueFront\\CustomPeiRanJueFront.csproj",
+      "packagesPath": "C:\\Users\\97452\\.nuget\\packages\\",
+      "outputPath": "J:\\taiwu备份\\太吾文档\\Mod\\更好的沛然诀\\CustomPeiRanJueFront\\CustomPeiRanJueFront\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\97452\\AppData\\Roaming\\NuGet\\NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net48"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net48": {
+          "targetAlias": "net48",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net48": {
+        "targetAlias": "net48",
+        "runtimeIdentifierGraphPath": "C:\\Users\\97452\\.dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

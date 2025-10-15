@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "Q6NXM4MMgrc=",
+  "success": true,
+  "projectFilePath": "J:\\taiwu备份\\太吾文档\\Mod\\更好的沛然诀\\CustomPeiRanJue\\CustomPeiRanJue.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\97452\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.25\\microsoft.netcore.app.ref.6.0.25.nupkg.sha512",
+    "C:\\Users\\97452\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.25\\microsoft.windowsdesktop.app.ref.6.0.25.nupkg.sha512",
+    "C:\\Users\\97452\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.25\\microsoft.aspnetcore.app.ref.6.0.25.nupkg.sha512"
+  ],
+  "logs": []
+}

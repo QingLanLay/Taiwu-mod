@@ -1,0 +1,257 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "TestYouFangYi/1.0.0": {
+        "dependencies": {
+          "GameData.Adventure": "1.0.0.0",
+          "GameData.Combat.Math": "1.0.0.0",
+          "GameData.Common.Algorithm": "1.0.0.0",
+          "GameData.Common": "0.0.0.0",
+          "GameData": "1.0.0.0",
+          "GameData.GameDataBridge": "0.0.0.0",
+          "GameData.Serializer": "1.0.0.0",
+          "GameData.Shared": "1.0.0.0",
+          "GameData.Shared.Enum": "1.0.0.0",
+          "GameData.Utilities": "1.0.0.0",
+          "GameData.Utilities.Structure": "1.0.0.0"
+        },
+        "runtime": {
+          "TestYouFangYi.dll": {}
+        }
+      },
+      "GameData.Adventure/1.0.0.0": {
+        "runtime": {
+          "GameData.Adventure.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "GameData.Combat.Math/1.0.0.0": {
+        "runtime": {
+          "GameData.Combat.Math.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "GameData.Common.Algorithm/1.0.0.0": {
+        "runtime": {
+          "GameData.Common.Algorithm.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "GameData.Common/0.0.0.0": {
+        "runtime": {
+          "GameData.Common.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "GameData/1.0.0.0": {
+        "runtime": {
+          "GameData.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "GameData.GameDataBridge/0.0.0.0": {
+        "runtime": {
+          "GameData.GameDataBridge.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "GameData.Serializer/1.0.0.0": {
+        "runtime": {
+          "GameData.Serializer.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "GameData.Shared/1.0.0.0": {
+        "runtime": {
+          "GameData.Shared.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "GameData.Shared.Enum/1.0.0.0": {
+        "runtime": {
+          "GameData.Shared.Enum.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "GameData.Utilities/1.0.0.0": {
+        "runtime": {
+          "GameData.Utilities.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "GameData.Utilities.Structure/1.0.0.0": {
+        "runtime": {
+          "GameData.Utilities.Structure.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "NLog/4.0.0.0": {
+        "runtime": {
+          "NLog.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.7.8.12686"
+          }
+        }
+      },
+      "MoonSharp.Interpreter/1.8.0.0": {
+        "runtime": {
+          "MoonSharp.Interpreter.dll": {
+            "assemblyVersion": "1.8.0.0",
+            "fileVersion": "1.8.0.0"
+          }
+        }
+      },
+      "Steamworks.NET/20.1.0.0": {
+        "runtime": {
+          "Steamworks.NET.dll": {
+            "assemblyVersion": "20.1.0.0",
+            "fileVersion": "20.1.0.0"
+          }
+        }
+      },
+      "Redzen/9.1.3.0": {
+        "runtime": {
+          "Redzen.dll": {
+            "assemblyVersion": "9.1.3.0",
+            "fileVersion": "9.1.3.0"
+          }
+        }
+      },
+      "CompDevLib.Interpreter/1.0.0.0": {
+        "runtime": {
+          "CompDevLib.Interpreter.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Newtonsoft.Json/13.0.0.0": {
+        "runtime": {
+          "Newtonsoft.Json.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.3.27908"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TestYouFangYi/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GameData.Adventure/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GameData.Combat.Math/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GameData.Common.Algorithm/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GameData.Common/0.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GameData/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GameData.GameDataBridge/0.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GameData.Serializer/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GameData.Shared/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GameData.Shared.Enum/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GameData.Utilities/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GameData.Utilities.Structure/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NLog/4.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MoonSharp.Interpreter/1.8.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Steamworks.NET/20.1.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Redzen/9.1.3.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CompDevLib.Interpreter/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Newtonsoft.Json/13.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

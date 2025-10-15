@@ -1,0 +1,10 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Batch_Cricket_Fighting
+build_property.ProjectDir = J:\taiwu备份\太吾文档\Mod\批量斗蛐蛐\Batch Cricket Fighting\Batch Cricket Fighting\

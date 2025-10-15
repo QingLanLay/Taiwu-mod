@@ -1,0 +1,100 @@
+public void RemoveInventoryItem(DataContext context, ItemKey itemKey, int amount, bool deleteItem, bool offLine = false)
+{
+    // 检查要移除的物品数量是否小于等于0
+    bool flag = amount <= 0;
+    if (!flag)
+    {
+        // 检查当前角色是否是太吾角色
+        bool flag2 = this._id == DomainManager.Taiwu.GetTaiwuCharId();
+        if (flag2)
+        {
+            // 如果是太吾角色，清除该物品的使用状态
+            DomainManager.Character.ClearItemUsingState(context, itemKey, this._id, ItemDisplayData.ItemUsingType.Invalid);
+        }
+        
+        // 从库存中移除指定数量的物品（离线操作）
+        this._inventory.OfflineRemove(itemKey, amount);
+        
+        // 触发物品从库存中移除的事件
+        Events.RaiseItemRemovedFromInventory(context, this, itemKey, amount);
+        
+        // 检查是否不是离线操作
+        bool flag3 = !offLine;
+        if (flag3)
+        {
+            // 如果不是离线操作，更新库存状态
+            this.SetInventory(this._inventory, context);
+        }
+        
+        // 检查是否需要完全删除物品
+        if (deleteItem)
+        {
+            // 从系统中完全移除该物品
+            DomainManager.Item.RemoveItem(context, itemKey);
+        }
+    }
+}
+
+public static void RaiseItemRemovedFromInventory(DataContext context, GameData.Domains.Character.Character character, ItemKey itemKey, int amount)
+{
+    // 获取角色ID
+    int charId = character.GetId();
+    
+    // 从物品所有者列表中移除该角色（表示该角色不再拥有此物品）
+    DomainManager.Item.RemoveOwner(itemKey, ItemOwnerType.CharacterInventory, charId);
+    
+    // 获取物品的子类型
+    short itemSubType = ItemTemplateHelper.GetItemSubType(itemKey.ItemType, itemKey.TemplateId);
+    
+    // 检查是否为传奇书籍（子类型1202）
+    bool flag = itemSubType == 1202;
+    if (flag)
+    {
+        // 计算书籍对应的战斗技能类型
+        int bookCombatSkillType = (int)(itemKey.TemplateId - 211);
+        // 取消注册该传奇书籍的所有者
+        DomainManager.LegendaryBook.UnregisterOwner(context, character, (sbyte)bookCombatSkillType);
+    }
+    
+    // 检查是否为太吾角色
+    bool flag2 = charId == DomainManager.Taiwu.GetTaiwuCharId();
+    if (flag2)
+    {
+        // 检查是否为武器类型（ItemType=0）
+        bool flag3 = itemKey.ItemType == 0;
+        if (flag3)
+        {
+            // 清除传奇武器槽位
+            DomainManager.Extra.ClearLegendaryBookWeaponSlot(context, itemKey);
+        }
+        
+        // 检查是否为装备类物品
+        bool flag4 = ItemType.IsEquipmentItemType(itemKey.ItemType);
+        if (flag4)
+        {
+            // 获取基础装备并更新其修改状态
+            EquipmentBase baseEquipment = DomainManager.Item.GetBaseEquipment(itemKey);
+            baseEquipment.SetModificationState(baseEquipment.GetModificationState(), context);
+        }
+    }
+    
+    // 获取该角色的太吾赠礼物品列表
+    IReadOnlyDictionary<ItemKey, int> giftItems = DomainManager.Extra.GetTaiwuGiftItems(charId);
+    
+    // 尝试获取该物品的赠礼数量
+    int giftAmount;
+    bool flag5 = giftItems.Count > 0 && giftItems.TryGetValue(itemKey, out giftAmount);
+    if (flag5)
+    {
+        // 获取角色库存中该物品的剩余数量
+        int remainingAmount = character.GetInventory().Items.GetValueOrDefault(itemKey, 0);
+        
+        // 检查剩余数量是否小于赠礼数量
+        bool flag6 = remainingAmount < giftAmount;
+        if (flag6)
+        {
+            // 更新太吾赠礼物品的数量
+            DomainManager.Extra.SetTaiwuGiftItemAmount(context, charId, itemKey, amount);
+        }
+    }
+}

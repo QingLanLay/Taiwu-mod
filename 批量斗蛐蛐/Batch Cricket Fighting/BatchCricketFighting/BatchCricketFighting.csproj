@@ -1,0 +1,539 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <RootNamespace>Batch_Cricket_Fighting</RootNamespace>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <IsPackable>true</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="0Harmony">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\The Scroll of Taiwu_Data\Managed\0Harmony.dll</HintPath>
+      </Reference>
+      <Reference Include="CompDevLib.Interpreter">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\CompDevLib.Interpreter.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\GameData.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData.Adventure">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\GameData.Adventure.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData.Combat.Math">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\GameData.Combat.Math.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData.Common">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\GameData.Common.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData.Common.Algorithm">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\GameData.Common.Algorithm.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData.Serializer">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\GameData.Serializer.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData.Shared">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\GameData.Shared.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData.Shared.Enum">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\GameData.Shared.Enum.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData.Utilities">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\GameData.Utilities.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData.Utilities.Structure">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\GameData.Utilities.Structure.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.CSharp">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\Microsoft.CSharp.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.VisualBasic">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\Microsoft.VisualBasic.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.VisualBasic.Core">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\Microsoft.VisualBasic.Core.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Win32.Primitives">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\Microsoft.Win32.Primitives.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Win32.Registry">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\Microsoft.Win32.Registry.dll</HintPath>
+      </Reference>
+      <Reference Include="MoonSharp.Interpreter">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\MoonSharp.Interpreter.dll</HintPath>
+      </Reference>
+      <Reference Include="mscorlib">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\mscorlib.dll</HintPath>
+      </Reference>
+      <Reference Include="netstandard">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\netstandard.dll</HintPath>
+      </Reference>
+      <Reference Include="Newtonsoft.Json">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\Newtonsoft.Json.dll</HintPath>
+      </Reference>
+      <Reference Include="NLog">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\NLog.dll</HintPath>
+      </Reference>
+      <Reference Include="Redzen">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\Redzen.dll</HintPath>
+      </Reference>
+      <Reference Include="System">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.dll</HintPath>
+      </Reference>
+      <Reference Include="System.AppContext">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.AppContext.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Buffers">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Buffers.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Collections">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Collections.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Collections.Concurrent">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Collections.Concurrent.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Collections.Immutable">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Collections.Immutable.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Collections.NonGeneric">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Collections.NonGeneric.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Collections.Specialized">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Collections.Specialized.dll</HintPath>
+      </Reference>
+      <Reference Include="System.ComponentModel">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.ComponentModel.dll</HintPath>
+      </Reference>
+      <Reference Include="System.ComponentModel.Annotations">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.ComponentModel.Annotations.dll</HintPath>
+      </Reference>
+      <Reference Include="System.ComponentModel.DataAnnotations">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.ComponentModel.DataAnnotations.dll</HintPath>
+      </Reference>
+      <Reference Include="System.ComponentModel.EventBasedAsync">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.ComponentModel.EventBasedAsync.dll</HintPath>
+      </Reference>
+      <Reference Include="System.ComponentModel.Primitives">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.ComponentModel.Primitives.dll</HintPath>
+      </Reference>
+      <Reference Include="System.ComponentModel.TypeConverter">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.ComponentModel.TypeConverter.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Configuration">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Configuration.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Console">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Console.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Core">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Core.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Data.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data.Common">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Data.Common.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data.DataSetExtensions">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Data.DataSetExtensions.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Diagnostics.Contracts">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Diagnostics.Contracts.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Diagnostics.Debug">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Diagnostics.Debug.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Diagnostics.DiagnosticSource">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Diagnostics.DiagnosticSource.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Diagnostics.FileVersionInfo">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Diagnostics.FileVersionInfo.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Diagnostics.Process">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Diagnostics.Process.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Diagnostics.StackTrace">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Diagnostics.StackTrace.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Diagnostics.TextWriterTraceListener">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Diagnostics.TextWriterTraceListener.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Diagnostics.Tools">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Diagnostics.Tools.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Diagnostics.TraceSource">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Diagnostics.TraceSource.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Diagnostics.Tracing">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Diagnostics.Tracing.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Drawing">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Drawing.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Drawing.Primitives">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Drawing.Primitives.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Dynamic.Runtime">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Dynamic.Runtime.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Formats.Asn1">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Formats.Asn1.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Globalization">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Globalization.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Globalization.Calendars">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Globalization.Calendars.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Globalization.Extensions">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Globalization.Extensions.dll</HintPath>
+      </Reference>
+      <Reference Include="System.IO">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.IO.dll</HintPath>
+      </Reference>
+      <Reference Include="System.IO.Compression">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.IO.Compression.dll</HintPath>
+      </Reference>
+      <Reference Include="System.IO.Compression.Brotli">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.IO.Compression.Brotli.dll</HintPath>
+      </Reference>
+      <Reference Include="System.IO.Compression.FileSystem">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.IO.Compression.FileSystem.dll</HintPath>
+      </Reference>
+      <Reference Include="System.IO.Compression.ZipFile">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.IO.Compression.ZipFile.dll</HintPath>
+      </Reference>
+      <Reference Include="System.IO.FileSystem">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.IO.FileSystem.dll</HintPath>
+      </Reference>
+      <Reference Include="System.IO.FileSystem.AccessControl">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.IO.FileSystem.AccessControl.dll</HintPath>
+      </Reference>
+      <Reference Include="System.IO.FileSystem.DriveInfo">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.IO.FileSystem.DriveInfo.dll</HintPath>
+      </Reference>
+      <Reference Include="System.IO.FileSystem.Primitives">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.IO.FileSystem.Primitives.dll</HintPath>
+      </Reference>
+      <Reference Include="System.IO.FileSystem.Watcher">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.IO.FileSystem.Watcher.dll</HintPath>
+      </Reference>
+      <Reference Include="System.IO.IsolatedStorage">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.IO.IsolatedStorage.dll</HintPath>
+      </Reference>
+      <Reference Include="System.IO.MemoryMappedFiles">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.IO.MemoryMappedFiles.dll</HintPath>
+      </Reference>
+      <Reference Include="System.IO.Pipes">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.IO.Pipes.dll</HintPath>
+      </Reference>
+      <Reference Include="System.IO.Pipes.AccessControl">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.IO.Pipes.AccessControl.dll</HintPath>
+      </Reference>
+      <Reference Include="System.IO.UnmanagedMemoryStream">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.IO.UnmanagedMemoryStream.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Linq">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Linq.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Linq.Expressions">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Linq.Expressions.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Linq.Parallel">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Linq.Parallel.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Linq.Queryable">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Linq.Queryable.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Memory">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Memory.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Net">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Net.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Net.Http">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Net.Http.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Net.Http.Json">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Net.Http.Json.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Net.HttpListener">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Net.HttpListener.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Net.Mail">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Net.Mail.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Net.NameResolution">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Net.NameResolution.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Net.NetworkInformation">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Net.NetworkInformation.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Net.Ping">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Net.Ping.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Net.Primitives">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Net.Primitives.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Net.Requests">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Net.Requests.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Net.Security">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Net.Security.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Net.ServicePoint">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Net.ServicePoint.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Net.Sockets">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Net.Sockets.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Net.WebClient">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Net.WebClient.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Net.WebHeaderCollection">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Net.WebHeaderCollection.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Net.WebProxy">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Net.WebProxy.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Net.WebSockets">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Net.WebSockets.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Net.WebSockets.Client">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Net.WebSockets.Client.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Numerics">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Numerics.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Numerics.Vectors">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Numerics.Vectors.dll</HintPath>
+      </Reference>
+      <Reference Include="System.ObjectModel">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.ObjectModel.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Reflection">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Reflection.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Reflection.DispatchProxy">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Reflection.DispatchProxy.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Reflection.Emit">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Reflection.Emit.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Reflection.Emit.ILGeneration">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Reflection.Emit.ILGeneration.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Reflection.Emit.Lightweight">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Reflection.Emit.Lightweight.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Reflection.Extensions">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Reflection.Extensions.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Reflection.Metadata">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Reflection.Metadata.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Reflection.Primitives">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Reflection.Primitives.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Reflection.TypeExtensions">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Reflection.TypeExtensions.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Resources.Reader">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Resources.Reader.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Resources.ResourceManager">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Resources.ResourceManager.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Resources.Writer">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Resources.Writer.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Runtime">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Runtime.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Runtime.CompilerServices.Unsafe">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Runtime.CompilerServices.VisualC">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Runtime.CompilerServices.VisualC.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Runtime.Extensions">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Runtime.Extensions.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Runtime.Handles">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Runtime.Handles.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Runtime.InteropServices">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Runtime.InteropServices.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Runtime.InteropServices.RuntimeInformation">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Runtime.Intrinsics">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Runtime.Intrinsics.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Runtime.Loader">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Runtime.Loader.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Runtime.Numerics">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Runtime.Numerics.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Runtime.Serialization">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Runtime.Serialization.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Runtime.Serialization.Formatters">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Runtime.Serialization.Formatters.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Runtime.Serialization.Json">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Runtime.Serialization.Json.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Runtime.Serialization.Primitives">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Runtime.Serialization.Primitives.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Runtime.Serialization.Xml">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Runtime.Serialization.Xml.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Security">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Security.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Security.AccessControl">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Security.AccessControl.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Security.Claims">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Security.Claims.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Security.Cryptography.Algorithms">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Security.Cryptography.Algorithms.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Security.Cryptography.Cng">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Security.Cryptography.Cng.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Security.Cryptography.Csp">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Security.Cryptography.Csp.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Security.Cryptography.Encoding">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Security.Cryptography.Encoding.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Security.Cryptography.OpenSsl">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Security.Cryptography.OpenSsl.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Security.Cryptography.Primitives">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Security.Cryptography.Primitives.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Security.Cryptography.X509Certificates">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Security.Principal">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Security.Principal.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Security.Principal.Windows">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Security.Principal.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Security.SecureString">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Security.SecureString.dll</HintPath>
+      </Reference>
+      <Reference Include="System.ServiceModel.Web">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.ServiceModel.Web.dll</HintPath>
+      </Reference>
+      <Reference Include="System.ServiceProcess">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.ServiceProcess.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Text.Encoding">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Text.Encoding.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Text.Encoding.CodePages">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Text.Encoding.CodePages.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Text.Encoding.Extensions">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Text.Encoding.Extensions.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Text.Encodings.Web">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Text.Encodings.Web.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Text.Json">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Text.Json.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Text.RegularExpressions">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Text.RegularExpressions.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Threading">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Threading.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Threading.Channels">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Threading.Channels.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Threading.Overlapped">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Threading.Overlapped.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Threading.Tasks">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Threading.Tasks.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Threading.Tasks.Dataflow">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Threading.Tasks.Dataflow.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Threading.Tasks.Extensions">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Threading.Tasks.Extensions.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Threading.Tasks.Parallel">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Threading.Tasks.Parallel.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Threading.Thread">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Threading.Thread.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Threading.ThreadPool">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Threading.ThreadPool.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Threading.Timer">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Threading.Timer.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Transactions">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Transactions.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Transactions.Local">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Transactions.Local.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Web">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Web.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Web.HttpUtility">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Web.HttpUtility.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Windows">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Xml">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Xml.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Xml.Linq">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Xml.Linq.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Xml.ReaderWriter">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Xml.ReaderWriter.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Xml.Serialization">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Xml.Serialization.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Xml.XDocument">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Xml.XDocument.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Xml.XmlDocument">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Xml.XmlDocument.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Xml.XmlSerializer">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Xml.XmlSerializer.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Xml.XPath">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Xml.XPath.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Xml.XPath.XDocument">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\System.Xml.XPath.XDocument.dll</HintPath>
+      </Reference>
+      <Reference Include="TaiwuModdingLib">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\The Scroll of Taiwu_Data\Managed\TaiwuModdingLib.dll</HintPath>
+      </Reference>
+      <Reference Include="WindowsBase">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\WindowsBase.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+</Project>

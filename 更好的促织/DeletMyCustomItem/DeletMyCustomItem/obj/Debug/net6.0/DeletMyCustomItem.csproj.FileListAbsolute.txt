@@ -1,0 +1,52 @@
+J:\steam\steamapps\common\The Scroll Of Taiwu\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\bin\Debug\net6.0\DeletMyCustomItem.deps.json
+J:\steam\steamapps\common\The Scroll Of Taiwu\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\bin\Debug\net6.0\DeletMyCustomItem.dll
+J:\steam\steamapps\common\The Scroll Of Taiwu\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\bin\Debug\net6.0\DeletMyCustomItem.pdb
+J:\steam\steamapps\common\The Scroll Of Taiwu\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\obj\Debug\net6.0\DeletMyCustomItem.csproj.AssemblyReference.cache
+J:\steam\steamapps\common\The Scroll Of Taiwu\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\obj\Debug\net6.0\DeletMyCustomItem.GeneratedMSBuildEditorConfig.editorconfig
+J:\steam\steamapps\common\The Scroll Of Taiwu\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\obj\Debug\net6.0\DeletMyCustomItem.AssemblyInfoInputs.cache
+J:\steam\steamapps\common\The Scroll Of Taiwu\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\obj\Debug\net6.0\DeletMyCustomItem.AssemblyInfo.cs
+J:\steam\steamapps\common\The Scroll Of Taiwu\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\obj\Debug\net6.0\DeletMyCustomItem.csproj.CoreCompileInputs.cache
+J:\steam\steamapps\common\The Scroll Of Taiwu\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\obj\Debug\net6.0\DeletMyCustomItem.dll
+J:\steam\steamapps\common\The Scroll Of Taiwu\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\obj\Debug\net6.0\refint\DeletMyCustomItem.dll
+J:\steam\steamapps\common\The Scroll Of Taiwu\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\obj\Debug\net6.0\DeletMyCustomItem.pdb
+J:\steam\steamapps\common\The Scroll Of Taiwu\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\obj\Debug\net6.0\ref\DeletMyCustomItem.dll
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\bin\Debug\net6.0\DeletMyCustomItem.deps.json
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\bin\Debug\net6.0\DeletMyCustomItem.dll
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\bin\Debug\net6.0\DeletMyCustomItem.pdb
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\bin\Debug\net6.0\0Harmony.dll
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\bin\Debug\net6.0\GameData.dll
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\bin\Debug\net6.0\GameData.Shared.dll
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\bin\Debug\net6.0\GameData.Utilities.dll
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\bin\Debug\net6.0\TaiwuModdingLib.dll
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\bin\Debug\net6.0\Mono.Cecil.dll
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\bin\Debug\net6.0\MonoMod.Utils.dll
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\bin\Debug\net6.0\MonoMod.RuntimeDetour.dll
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\bin\Debug\net6.0\NLog.dll
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\bin\Debug\net6.0\MoonSharp.Interpreter.dll
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\bin\Debug\net6.0\Steamworks.NET.dll
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\bin\Debug\net6.0\GameData.Common.dll
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\bin\Debug\net6.0\GameData.Serializer.dll
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\bin\Debug\net6.0\Redzen.dll
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\bin\Debug\net6.0\GameData.Utilities.Structure.dll
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\bin\Debug\net6.0\GameData.Combat.Math.dll
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\bin\Debug\net6.0\CompDevLib.Interpreter.dll
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\bin\Debug\net6.0\GameData.Common.Algorithm.dll
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\bin\Debug\net6.0\Newtonsoft.Json.dll
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\bin\Debug\net6.0\GameData.pdb
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\bin\Debug\net6.0\GameData.Shared.pdb
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\bin\Debug\net6.0\GameData.Common.pdb
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\bin\Debug\net6.0\GameData.Serializer.pdb
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\bin\Debug\net6.0\GameData.Utilities.Structure.pdb
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\bin\Debug\net6.0\GameData.Combat.Math.pdb
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\bin\Debug\net6.0\CompDevLib.Interpreter.pdb
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\bin\Debug\net6.0\GameData.Common.Algorithm.pdb
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\obj\Debug\net6.0\DeletMyCustomItem.csproj.AssemblyReference.cache
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\obj\Debug\net6.0\DeletMyCustomItem.GeneratedMSBuildEditorConfig.editorconfig
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\obj\Debug\net6.0\DeletMyCustomItem.AssemblyInfoInputs.cache
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\obj\Debug\net6.0\DeletMyCustomItem.AssemblyInfo.cs
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\obj\Debug\net6.0\DeletMyCustomItem.csproj.CoreCompileInputs.cache
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\obj\Debug\net6.0\DeletMyCustomItem.csproj.CopyComplete
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\obj\Debug\net6.0\DeletMyCustomItem.dll
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\obj\Debug\net6.0\refint\DeletMyCustomItem.dll
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\obj\Debug\net6.0\DeletMyCustomItem.pdb
+J:\taiwu备份\太吾文档\Mod\DeletCustomItem\DeletMyCustomItem\DeletMyCustomItem\obj\Debug\net6.0\ref\DeletMyCustomItem.dll
