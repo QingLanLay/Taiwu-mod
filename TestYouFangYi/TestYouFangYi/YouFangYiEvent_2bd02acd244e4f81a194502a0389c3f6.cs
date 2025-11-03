@@ -46,6 +46,11 @@ namespace Modder_76561198100202539.EventConfig.Taiwu.EventGroup483794014fbc4007b
 				{
 					OptionKey = "Option_-125410720",
 					OptionGuid = "2897918a-1f66-4ba6-92d0-f01afb9b53c4"
+				},
+				new TaiwuEventOption  // 新增的4号选项
+				{
+					OptionKey = "Option_125410724",
+					OptionGuid = Guid.NewGuid().ToString() // 生成新的GUID
 				}
 			};
 			this.InitOptions();
@@ -78,6 +83,15 @@ namespace Modder_76561198100202539.EventConfig.Taiwu.EventGroup483794014fbc4007b
 			this.EventOptions[2].DefaultState = 0;
 			this.EventOptions[2].OneTimeOnly = false;
 			this.OnOption3Create();
+			// 新增4号选项的初始化
+			this.EventOptions[3].OnOptionVisibleCheck = new Func<bool>(this.OnOption4VisibleCheck);
+			this.EventOptions[3].OnOptionAvailableCheck = new Func<bool>(this.OnOption4AvailableCheck);
+			this.EventOptions[3].GetReplacedContent = new Func<string>(this.OnOption4GetReplacedContent);
+			this.EventOptions[3].OnOptionSelect = new Func<string>(this.OnOption4Select);
+			this.EventOptions[3].GetExtraFormatLanguageKeys = new Func<List<string>>(this.Option4GetExtraFormatLanguageKeys);
+			this.EventOptions[3].DefaultState = 0;
+			this.EventOptions[3].OneTimeOnly = false;
+			this.OnOption4Create();
 		}
 
 		// Token: 0x06000004 RID: 4 RVA: 0x000023C8 File Offset: 0x000005C8
@@ -310,6 +324,9 @@ namespace Modder_76561198100202539.EventConfig.Taiwu.EventGroup483794014fbc4007b
 		// Token: 0x06000016 RID: 22 RVA: 0x00002491 File Offset: 0x00000691
 		private void OnOption3Create()
 		{
+			this.EventOptions[2].OptionConsumeInfos = new List<OptionConsumeInfo>();
+			this.EventOptions[2].OptionConsumeInfos.Add(new OptionConsumeInfo(8, 30, true));
+			this.EventOptions[2].OptionConsumeInfos.Add(new OptionConsumeInfo(7, 50000, true));
 		}
 
 		// Token: 0x06000017 RID: 23 RVA: 0x00002A04 File Offset: 0x00000C04
@@ -327,17 +344,55 @@ namespace Modder_76561198100202539.EventConfig.Taiwu.EventGroup483794014fbc4007b
 		// Token: 0x06000019 RID: 25 RVA: 0x00002A2C File Offset: 0x00000C2C
 		private string OnOption3GetReplacedContent()
 		{
-			return string.Empty;
+			return "活死药。";
 		}
 
 		// Token: 0x0600001A RID: 26 RVA: 0x00002A44 File Offset: 0x00000C44
 		private string OnOption3Select()
 		{
+			Character character = this.ArgBox.GetCharacter("RoleTaiwu");
+			Inventory inventory = character.GetInventory();
+			ItemKey item = EventHelper.AddItemToRole(character, 8, 387, 1, -1);
+			EventHelper.ShowGetItemPageForItems(new List<ValueTuple<ItemKey, int>>
+			{
+				new ValueTuple<ItemKey, int>(item, 1)
+			}, "", this.ArgBox, false);
 			return string.Empty;
 		}
 
 		// Token: 0x0600001B RID: 27 RVA: 0x00002A5C File Offset: 0x00000C5C
 		public List<string> Option3GetExtraFormatLanguageKeys()
+		{
+			return null;
+		}
+
+
+		// 以下是新增的4号选项方法，复制自3号选项
+		private void OnOption4Create()
+		{
+		}
+
+		private bool OnOption4VisibleCheck()
+		{
+			return true;
+		}
+
+		private bool OnOption4AvailableCheck()
+		{
+			return true;
+		}
+
+		private string OnOption4GetReplacedContent()
+		{
+			return "药材不足，改日再叙。";
+		}
+
+		private string OnOption4Select()
+		{
+			return string.Empty;
+		}
+
+		public List<string> Option4GetExtraFormatLanguageKeys()
 		{
 			return null;
 		}
