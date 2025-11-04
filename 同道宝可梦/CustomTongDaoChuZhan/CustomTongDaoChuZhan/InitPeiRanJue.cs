@@ -65,26 +65,29 @@ public class InitTongDaoChuZhan : TaiwuRemakeHarmonyPlugin
     [HarmonyPatch("ResetTeammateCommandLeftTime")]
     public class CombatCharacterPatch
     {
-        // 前缀补丁 - 在原始方法执行前运行
         [HarmonyPrefix]
-        // public static bool Prefix(CombatCharacter __instance)
-        // {
-        //     // 你的修改代码
-        //     // 返回 true 继续执行原始方法，false 跳过原始方法
-        //     return true;
-        // }
-
-        // 后缀补丁 - 在原始方法执行后运行
-        [HarmonyPostfix]
-        public static void Postfix(CombatCharacter __instance)
+        public static bool Prefix(CombatCharacter __instance, DataContext context)
         {
-            // 设置一个极大的帧数，相当于无限制
-            __instance.TeammateCommandLeftFrame = (short)32767;
-            __instance.TeammateCommandTotalFrame = 32767;
-
-            var dataContext = __instance.GetDataContext();
-            // 保持百分比显示为100%
-            __instance.SetTeammateCommandTimePercent(100, dataContext);
+            // 检查是否是同道出战命令
+            var implement = __instance.ExecutingTeammateCommandConfig.Implement;
+            bool isCompanionCommand = implement == ETeammateCommandImplement.Fight || 
+                                      implement == ETeammateCommandImplement.StopEnemy;
+        
+            if (isCompanionCommand)
+            {
+                // 设置最大short值
+                __instance.TeammateCommandLeftFrame = short.MaxValue; // 32767
+                __instance.TeammateCommandTotalFrame = short.MaxValue;
+            
+                // 保持百分比显示为100%
+                __instance.SetTeammateCommandTimePercent(100, context);
+            
+                // 跳过原始方法
+                return false;
+            }
+        
+            // 对于其他命令，执行原始逻辑
+            return true;
         }
     }
     
