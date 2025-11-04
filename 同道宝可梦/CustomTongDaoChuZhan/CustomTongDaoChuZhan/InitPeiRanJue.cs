@@ -60,35 +60,22 @@ public class InitTongDaoChuZhan : TaiwuRemakeHarmonyPlugin
         AdaptableLog.Info("=== 同 Mod 初始化完成 ===");
     }
 
-    
+
     [HarmonyPatch(typeof(CombatCharacter))]
-    [HarmonyPatch("ResetTeammateCommandLeftTime")]
     public class CombatCharacterPatch
     {
+        [HarmonyPatch("ReduceTeammateCommandLeftTime")]
         [HarmonyPrefix]
         public static bool Prefix(CombatCharacter __instance, DataContext context)
         {
-            // 检查是否是同道出战命令
-            var implement = __instance.ExecutingTeammateCommandConfig.Implement;
-            bool isCompanionCommand = implement == ETeammateCommandImplement.Fight || 
-                                      implement == ETeammateCommandImplement.StopEnemy;
-        
-            if (isCompanionCommand)
-            {
-                // 设置最大short值
-                __instance.TeammateCommandLeftFrame = short.MaxValue; // 32767
-                __instance.TeammateCommandTotalFrame = short.MaxValue;
+            __instance.TeammateCommandLeftFrame = short.MaxValue; // 32767
+            __instance.TeammateCommandTotalFrame = short.MaxValue;
+
+            // 保持百分比显示为100%
+            __instance.SetTeammateCommandTimePercent(100, context);
             
-                // 保持百分比显示为100%
-                __instance.SetTeammateCommandTimePercent(100, context);
-            
-                // 跳过原始方法
-                return false;
-            }
-        
             // 对于其他命令，执行原始逻辑
             return true;
         }
     }
-    
 }
