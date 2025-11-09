@@ -25,4 +25,7 @@
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=J_003A_005CSteamLibrary_005Csteamapps_005Ccommon_005CThe_0020Scroll_0020Of_0020Taiwu_005CBackend_005CGameData_002EUtilities_002EStructure_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=J_003A_005CSteamLibrary_005Csteamapps_005Ccommon_005CThe_0020Scroll_0020Of_0020Taiwu_005CThe_0020Scroll_0020of_0020Taiwu_005FData_005CManaged_005C0Harmony_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=J_003A_005CSteamLibrary_005Csteamapps_005Ccommon_005CThe_0020Scroll_0020Of_0020Taiwu_005CThe_0020Scroll_0020of_0020Taiwu_005FData_005CManaged_005CAssembly_002DCSharp_002Dfirstpass_002Edll/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=J_003A_005CSteamLibrary_005Csteamapps_005Ccommon_005CThe_0020Scroll_0020Of_0020Taiwu_005CThe_0020Scroll_0020of_0020Taiwu_005FData_005CManaged_005CTaiwuModdingLib_002Edll/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=J_003A_005CSteamLibrary_005Csteamapps_005Ccommon_005CThe_0020Scroll_0020Of_0020Taiwu_005CThe_0020Scroll_0020of_0020Taiwu_005FData_005CManaged_005CTaiwuModdingLib_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
+  &lt;Assembly Path="J:\taiwu备份\太吾文档\Taiwu-mod\同道宝可梦\CustomTongDaoChuZhan\CustomTongDaoChuZhan\bin\Debug\net6.0\CustomTongDaoChuZhan.dll" /&gt;&#xD;
+&lt;/AssemblyExplorer&gt;</s:String></wpf:ResourceDictionary>
