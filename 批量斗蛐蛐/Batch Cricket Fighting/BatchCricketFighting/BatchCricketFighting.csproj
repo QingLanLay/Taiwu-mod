@@ -531,9 +531,38 @@
       <Reference Include="TaiwuModdingLib">
         <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\The Scroll of Taiwu_Data\Managed\TaiwuModdingLib.dll</HintPath>
       </Reference>
+      <Reference Include="Taiwu_EventPackage_CharacterInteraction_Chat">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Event\EventLib\Taiwu_EventPackage_CharacterInteraction_Chat.dll</HintPath>
+      </Reference>
+      <Reference Include="Taiwu_EventPackage_CharacterInteraction_Interact">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Event\EventLib\Taiwu_EventPackage_CharacterInteraction_Interact.dll</HintPath>
+      </Reference>
+      <Reference Include="Taiwu_EventPackage_CharacterInteraction_Main">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Event\EventLib\Taiwu_EventPackage_CharacterInteraction_Main.dll</HintPath>
+      </Reference>
+      <Reference Include="Taiwu_EventPackage_CharacterInteraction_Oppose">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Event\EventLib\Taiwu_EventPackage_CharacterInteraction_Oppose.dll</HintPath>
+      </Reference>
+      <Reference Include="Taiwu_EventPackage_CharacterInteraction_RandomEnemy">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Event\EventLib\Taiwu_EventPackage_CharacterInteraction_RandomEnemy.dll</HintPath>
+      </Reference>
+      <Reference Include="Taiwu_EventPackage_CharacterInteraction_Relate">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Event\EventLib\Taiwu_EventPackage_CharacterInteraction_Relate.dll</HintPath>
+      </Reference>
+      <Reference Include="Taiwu_EventPackage_CharacterInteraction_Special">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Event\EventLib\Taiwu_EventPackage_CharacterInteraction_Special.dll</HintPath>
+      </Reference>
+      <Reference Include="Taiwu_EventPackage_CharacterInteraction_Study">
+        <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Event\EventLib\Taiwu_EventPackage_CharacterInteraction_Study.dll</HintPath>
+      </Reference>
       <Reference Include="WindowsBase">
         <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\The Scroll Of Taiwu\Backend\WindowsBase.dll</HintPath>
       </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="a.cs" />
+      <Compile Remove="aa.cs" />
     </ItemGroup>
 
 </Project>

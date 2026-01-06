@@ -30,6 +30,12 @@ namespace CustomPeiRanJue;
 [PluginConfig("CustomPeiRanJue", "超级马桶", "0.1")]
 public class InitPeiRanJue : TaiwuRemakeHarmonyPlugin
 {
+    public static class Setting
+    {
+        public static string Level = "";
+        public static int LevelInt = 75;
+    }
+    
     public static long _peiRanJueId;
 
     public override void Dispose()
@@ -40,6 +46,14 @@ public class InitPeiRanJue : TaiwuRemakeHarmonyPlugin
             AdaptableLog.Info("Harmony 补丁已卸载");
         }
     }
+
+    public override void OnModSettingUpdate()
+    {
+        DomainManager.Mod.GetSetting(base.ModIdStr, "Level", ref Setting.Level);
+        int.TryParse(Setting.Level, out int StringToInt);
+        Setting.LevelInt = StringToInt;
+    }
+
 
     public override void Initialize()
     {
@@ -114,7 +128,7 @@ public class InitPeiRanJue : TaiwuRemakeHarmonyPlugin
         {
             // 1. 直接获取目标 SpecialEffectItem 实例
             var targetEffect = SpecialEffect.Instance[Config.CombatSkill.Instance["沛然诀"].DirectEffectID];
-            
+
             ModifyField_PeiRanJue(targetEffect);
             AdaptableLog.Info("沛然诀正练修改成功");
             // 验证修改是否真的生效
@@ -131,12 +145,12 @@ public class InitPeiRanJue : TaiwuRemakeHarmonyPlugin
     {
         try
         {
-            // 1. 直接获取目标 SpecialEffectItem 实例
+            // 1.1 直接获取目标 SpecialEffectItem 实例
             var targetEffect = SpecialEffect.Instance[Config.CombatSkill.Instance["沛然诀"].ReverseEffectID];
-            
+
             ModifyField_PeiRanJue(targetEffect);
             AdaptableLog.Info("沛然诀逆练修改成功");
-            
+
             // 验证修改是否真的生效
             VerifyModification(targetEffect);
         }
@@ -157,23 +171,23 @@ public class InitPeiRanJue : TaiwuRemakeHarmonyPlugin
             "Desc",
             newDescArray
         );
-        
+
         ReflectionExtensions.ModifyField<SpecialEffectItem>(
             targetEffect,
             "ShortDesc",
             newDescArray
         );
-        
+
         ReflectionExtensions.ModifyField<SpecialEffectItem>(
             targetEffect,
             "PlayerCastBossSkillDesc",
             newDescArray
         );
-        
+
         ReflectionExtensions.ModifyField<SpecialEffectItem>(
             targetEffect,
             "EffectActiveType",
-            (sbyte) 2,
+            (sbyte)2,
             BindingFlags.Instance | BindingFlags.Public
         );
     }
@@ -184,22 +198,22 @@ public class InitPeiRanJue : TaiwuRemakeHarmonyPlugin
         {
             // 使用内置方法获取字段值进行验证
             var descValue = TaiwuModdingLib.Core.Utils.ReflectionExtensions.GetFieldValue<SpecialEffectItem>(
-                effect, 
-                "Desc", 
+                effect,
+                "Desc",
                 BindingFlags.Instance | BindingFlags.Public
             ) as string[];
-        
+
             var effectTypeValue = TaiwuModdingLib.Core.Utils.ReflectionExtensions.GetFieldValue<SpecialEffectItem>(
-                effect, 
-                "EffectActiveType", 
+                effect,
+                "EffectActiveType",
                 BindingFlags.Instance | BindingFlags.Public
             );
-        
+
             if (descValue != null && descValue.Length > 0)
             {
                 AdaptableLog.Info($"验证 - Desc: {descValue[0]}");
             }
-        
+
             AdaptableLog.Info($"验证 - EffectActiveType: {effectTypeValue}");
         }
         catch (Exception ex)
@@ -207,7 +221,7 @@ public class InitPeiRanJue : TaiwuRemakeHarmonyPlugin
             AdaptableLog.Info($"验证失败: {ex.Message}");
         }
     }
-    
+
     private Harmony harm;
 }
 
@@ -268,6 +282,7 @@ public static class PeiRanJueFinalPatch
                 if (!_featureUid.Equals(EmptyDataUid))
                 {
                     GameDataBridge.RemovePostDataModificationHandler(_featureUid, peiRanJue.DataHandlerKey);
+
                     AdaptableLog.Info("✅ 已移除数据修改处理器");
                     _featureUid = EmptyDataUid;
                 }
@@ -393,6 +408,7 @@ public static class PeiRanJueFinalPatch
     {
         try
         {
+            AdaptableLog.Info("当前数值等级：" + InitPeiRanJue.Setting.Level.GetType().ToString() + InitPeiRanJue.Setting.Level);
             // 这里需要找到对应的PeiRanJue实例
             // 由于是静态方法，我们需要通过角色ID来管理
             var character = DomainManager.Character.GetElement_Objects(charId);
@@ -400,8 +416,15 @@ public static class PeiRanJueFinalPatch
             {
                 MainAttributes allAttrs = character.GetMaxMainAttributes();
                 var sum = allAttrs.GetSum();
-                int newValue = (sum / 75) * 5;
-
+                int newValue;
+                if (InitPeiRanJue.Setting.LevelInt == 0)
+                {
+                    newValue = (sum / 75) * 5; // 你的自定义计算公式
+                }
+                else
+                {
+                    newValue = (sum / InitPeiRanJue.Setting.LevelInt) * 5; // 你的自定义计算公式
+                }
                 // 更新对应角色的威力值
                 UpdateCharacterPowerValue(charId, newValue);
 
@@ -424,33 +447,43 @@ public static class PeiRanJueFinalPatch
 
     private static int GetCurrentAddPowerValue(int charId)
     {
-        return _characterPowerValues.TryGetValue(charId, out int value) ? value : 100;
+        return _characterPowerValues.TryGetValue(charId, out int value) ? value : 75;
     }
 
     // 更新威力值
     private static void UpdateAddPowerValue(PeiRanJue instance)
     {
-        _addPowerValue = 0;
+        _addPowerValue = 75;
         if (instance?.CharObj != null)
         {
+            AdaptableLog.Info("当前数值等级：" + InitPeiRanJue.Setting.Level.GetType().ToString() + InitPeiRanJue.Setting.Level);
             try
             {
                 Character taiWu = instance.CharObj;
                 MainAttributes allAttrs = taiWu.GetMaxMainAttributes();
                 var sum = allAttrs.GetSum();
-                _addPowerValue = (sum / 75) * 5; // 你的自定义计算公式
+                if (InitPeiRanJue.Setting.LevelInt == 0)
+                {
+                    _addPowerValue = (sum / 75) * 5; // 你的自定义计算公式
+                }
+                else
+                {
+                    _addPowerValue = (sum / InitPeiRanJue.Setting.LevelInt) * 5; // 你的自定义计算公式
+                }
+
                 AdaptableLog.Info($"🔢 计算威力加成: {_addPowerValue} (总属性: {sum})");
             }
             catch (Exception e)
             {
                 AdaptableLog.Error($"❌ 威力计算失败: {e}");
-                _addPowerValue = 100; // 默认值
+                _addPowerValue = 75; // 默认值
             }
         }
         else
         {
             AdaptableLog.Error("⚠️ 无法获取角色对象，使用默认威力值");
-            _addPowerValue = 100; // 默认值
+            _addPowerValue = 0; // 默认值
         }
     }
 }
+
