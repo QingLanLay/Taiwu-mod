@@ -1,0 +1,25 @@
+# 编译输出和依赖目录 (常见于 C#, Java, JavaScript, Python 等)
+[Bb]in/
+[Oo]bj/
+[Nn]ode_modules/
+build/
+dist/
+*.pyc
+__pycache__/
+
+# 本地IDE和编辑器设置文件
+.vs/
+.vscode/
+.idea/
+*.suo
+*.user
+
+# 临时文件和系统文件
+[Tt]emp/
+[Tt]mp/
+.DS_Store
+Thumbs.db
+
+# 日志文件
+*.log
+logs/
