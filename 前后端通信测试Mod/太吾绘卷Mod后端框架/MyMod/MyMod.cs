@@ -1,38 +1,39 @@
 ﻿using System;
+using GameData.Common;
+using GameData.Domains;
+using GameData.Domains.Mod;
 using GameData.Utilities;
 using HarmonyLib;
+using MyFrontMod;
+using Newtonsoft.Json;
 using TaiwuModdingLib.Core.Plugin;
+
 
 namespace MyMod
 {
     [PluginConfig("MyMod", "作者名", "1.0.0.0")]
     public class MyMod : TaiwuRemakePlugin
     {
-        private Harmony _harmony;
+
 
         public override void Initialize()
         {
-            // 初始化日志
-            AdaptableLog.Info("MyMod 初始化");
-            
-            // Harmony补丁初始化
-            _harmony = new Harmony("MyMod.Patches");
-            _harmony.PatchAll();
+            DomainManager.Mod.AddModMethod(ModIdStr, "ExampleFoo", ExampleFoo);
         }
 
         public override void Dispose()
         {
-            // 清理Harmony补丁
-            _harmony?.UnpatchSelf();
-            
-            AdaptableLog.Info("MyMod 卸载完成");
+
+        }
+        
+        private void ExampleFoo(DataContext context, SerializableModData data)
+        {
+            if (data.Get("jsonData", out string jsonData))
+            {
+                var testSendMethod = JsonConvert.DeserializeObject<TestSendMethod>(jsonData);
+                AdaptableLog.Info($"前端调用并发送了数据 {testSendMethod.Value}");
+            }
         }
     }
 
-    // Harmony补丁示例
-    [HarmonyPatch]
-    public class ExamplePatch
-    {
-        // 此处可以添加补丁方法
-    }
 }
