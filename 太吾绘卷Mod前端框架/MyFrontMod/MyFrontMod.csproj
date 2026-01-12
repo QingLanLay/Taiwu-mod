@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net48</TargetFramework>
+        <OutputType>Library</OutputType>
+        <Nullable>disable</Nullable>
+        <LangVersion>8</LangVersion>
+        <RootNamespace>CustomPeiRanJueFront</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <!-- 0Harmony - 游戏/Mod加载器提供 -->
+        <Reference Include="0Harmony">
+            <HintPath>Libs\0Harmony.dll</HintPath>
+            <Private>false</Private>  <!-- 不复制到输出目录 -->
+        </Reference>
+
+        <!-- Assembly-CSharp - 游戏核心 -->
+        <Reference Include="Assembly-CSharp">
+            <HintPath>Libs\Assembly-CSharp.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+
+        <!-- GameData相关DLL -->
+        <Reference Include="GameData.Shared">
+            <HintPath>Libs\GameData.Shared.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+
+        <Reference Include="GameData.Utilities">
+            <HintPath>Libs\GameData.Utilities.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+
+        <!-- TaiwuModdingLib - Mod框架 -->
+        <Reference Include="TaiwuModdingLib">
+            <HintPath>Libs\TaiwuModdingLib.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+    </ItemGroup>
+
+</Project>

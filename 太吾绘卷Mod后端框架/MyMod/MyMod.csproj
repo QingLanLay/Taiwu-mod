@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <LangVersion>10</LangVersion>
+        <RootNamespace>AutoFixCombatItem</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <!-- Harmony是Mod加载器提供的，游戏不包含 -->
+        <Reference Include="0Harmony">
+            <HintPath>Libs\0Harmony.dll</HintPath>
+            <Private>false</Private>  <!-- Mod加载器已提供 -->
+        </Reference>
+
+        <!-- 游戏自带的DLL，游戏已加载 -->
+        <Reference Include="GameData">
+            <HintPath>Libs\GameData.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+
+        <Reference Include="GameData.Shared">
+            <HintPath>Libs\GameData.Shared.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+
+        <Reference Include="GameData.Utilities">
+            <HintPath>Libs\GameData.Utilities.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+
+        <!-- TaiwuModdingLib是Mod框架提供的 -->
+        <Reference Include="TaiwuModdingLib">
+            <HintPath>Libs\TaiwuModdingLib.dll</HintPath>
+            <Private>false</Private>  <!-- Mod框架已提供 -->
+        </Reference>
+    </ItemGroup>
+
+</Project>

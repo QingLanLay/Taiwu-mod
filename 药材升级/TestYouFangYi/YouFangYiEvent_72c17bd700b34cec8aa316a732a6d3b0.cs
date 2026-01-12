@@ -9,828 +9,1197 @@ using GameData.Domains.TaiwuEvent.EventHelper;
 
 namespace Modder_76561198100202539.EventConfig.Taiwu.EventGroup483794014fbc4007b2f13bd8cc1e708e
 {
-    // Token: 0x02000004 RID: 4
+    /// <summary>
+    /// 有方仪事件 - 药材升级选择界面
+    /// 事件ID: 72c17bd7-00b3-4cec-8aa3-16a732a6d3b0
+    /// 功能：提供多种药材升级选项的界面
+    /// </summary>
     public class YouFangYiEvent_72c17bd700b34cec8aa316a732a6d3b0 : TaiwuEventItem
     {
-        // Token: 0x0600001C RID: 28 RVA: 0x00002A70 File Offset: 0x00000C70
+        /// <summary>
+        /// 构造函数 - 初始化事件配置
+        /// </summary>
         public YouFangYiEvent_72c17bd700b34cec8aa316a732a6d3b0()
         {
+            // 基础事件配置
             this.Guid = Guid.Parse("72c17bd7-00b3-4cec-8aa3-16a732a6d3b0");
-            this.IsHeadEvent = false;
-            this.EventGroup = "CuZhiLing02";
+            this.IsHeadEvent = false; // 非头部事件，由其他事件触发
+            this.EventGroup = "YaoCaiShengJi"; // 药材升级事件组
             this.ForceSingle = false;
             this.EventType = (EEventType)6;
-            this.TriggerType = EventTrigger.None;
+            this.TriggerType = EventTrigger.None; // 不直接触发，由其他事件跳转
             this.EventSortingOrder = 500;
+            
+            // 角色配置
             this.MainRoleKey = "";
             this.TargetRoleKey = "";
+            
+            // 界面配置
             this.EventBackground = "";
             this.MaskControl = 0;
             this.MaskTweenTime = 0f;
             this.EscOptionKey = "";
-              this.EventOptions = new TaiwuEventOption[]
+            
+            // 初始化事件选项
+            this.EventOptions = new TaiwuEventOption[]
             {
-                new TaiwuEventOption
+                new TaiwuEventOption // 选项1
                 {
                     OptionKey = "Option_-1126735797",
                     OptionGuid = "613e94a9-d9e1-4511-b3a1-7e0a0d0e960c"
                 },
-                new TaiwuEventOption
+                new TaiwuEventOption // 选项2
                 {
                     OptionKey = "Option_-891361317",
                     OptionGuid = "e267f16b-6fd3-4f4b-a68f-3b898aa8e00e"
                 },
-                new TaiwuEventOption
+                new TaiwuEventOption // 选项3
                 {
                     OptionKey = "Option_-893284401",
                     OptionGuid = "59cc595d-92e0-473b-ab7f-a66dcf895990"
                 },
-                new TaiwuEventOption
+                new TaiwuEventOption // 选项4
                 {
                     OptionKey = "Option_-857513030",
                     OptionGuid = "6b8c0036-2797-4615-ad15-09447c59d5ca"
                 },
-                new TaiwuEventOption
+                new TaiwuEventOption // 选项5
                 {
                     OptionKey = "Option_1936792895",
                     OptionGuid = "ad824dc5-ac17-4b55-91cb-767f29fa64c4"
                 },
-                new TaiwuEventOption
+                new TaiwuEventOption // 选项6
                 {
                     OptionKey = "Option_1112125176",
                     OptionGuid = "133cd4a6-5599-45b2-8498-c7649be1ecc7"
                 },
-                new TaiwuEventOption
+                new TaiwuEventOption // 选项7
                 {
                     OptionKey = "Option_1518141782",
                     OptionGuid = "af3ba0d3-1378-4918-bb0c-8f0978255466"
                 },
-                new TaiwuEventOption
+                new TaiwuEventOption // 选项8
                 {
                     OptionKey = "Option_627222926",
                     OptionGuid = "97ada584-78bf-4f06-a3ec-a55ac7c9843a"
                 },
-                new TaiwuEventOption
+                new TaiwuEventOption // 选项9
                 {
                     OptionKey = "Option_1378749027",
                     OptionGuid = "ced937b4-ceef-4b5e-803d-61d5a4e23256"
                 },
-                new TaiwuEventOption
+                new TaiwuEventOption // 选项10
                 {
                     OptionKey = "Option_-1194893333",
                     OptionGuid = "a2c7de43-3037-4bc7-aa79-56468736ad8c"
                 },
-                new TaiwuEventOption
+                new TaiwuEventOption // 选项11
                 {
                     OptionKey = "Option_1602323249",
                     OptionGuid = "ce2ada07-9ca9-4830-bec8-b0064cd19334"
                 },
-                // 新增的12号选项
+                // 新增的12号选项 - 移速步伐
                 new TaiwuEventOption
                 {
                     OptionKey = "Option_170171_12",
                     OptionGuid = Guid.NewGuid().ToString()
                 },
-                // 新增的13号选项
+                // 新增的13号选项 - 提架回复
                 new TaiwuEventOption
                 {
                     OptionKey = "Option_206207_13",
                     OptionGuid = Guid.NewGuid().ToString()
                 },
-                // 新增的14号选项
+                // 新增的14号选项 - 施展引奇
                 new TaiwuEventOption
                 {
                     OptionKey = "Option_230231_14",
                     OptionGuid = Guid.NewGuid().ToString()
                 },
-                // 新增的99号选项
+                // 新增的99号选项 - 返回
                 new TaiwuEventOption
                 {
                     OptionKey = "Option_99_Return",
                     OptionGuid = Guid.NewGuid().ToString()
                 }
             };
+            
+            // 初始化所有选项的回调函数
             this.InitOptions();
         }
 
-        // Token: 0x0600001D RID: 29 RVA: 0x00002C6C File Offset: 0x00000E6C
+        /// <summary>
+        /// 初始化所有选项的回调函数
+        /// </summary>
         private void InitOptions()
         {
+            // 选项1初始化
             this.EventOptions[0].OnOptionVisibleCheck = new Func<bool>(this.OnOption1VisibleCheck);
             this.EventOptions[0].OnOptionAvailableCheck = new Func<bool>(this.OnOption1AvailableCheck);
             this.EventOptions[0].GetReplacedContent = new Func<string>(this.OnOption1GetReplacedContent);
             this.EventOptions[0].OnOptionSelect = new Func<string>(this.OnOption1Select);
-            this.EventOptions[0].GetExtraFormatLanguageKeys =
-                new Func<List<string>>(this.Option1GetExtraFormatLanguageKeys);
+            this.EventOptions[0].GetExtraFormatLanguageKeys = new Func<List<string>>(this.Option1GetExtraFormatLanguageKeys);
             this.EventOptions[0].DefaultState = 0;
             this.EventOptions[0].OneTimeOnly = false;
             this.OnOption1Create();
+            
+            // 选项2初始化
             this.EventOptions[1].OnOptionVisibleCheck = new Func<bool>(this.OnOption2VisibleCheck);
             this.EventOptions[1].OnOptionAvailableCheck = new Func<bool>(this.OnOption2AvailableCheck);
             this.EventOptions[1].GetReplacedContent = new Func<string>(this.OnOption2GetReplacedContent);
             this.EventOptions[1].OnOptionSelect = new Func<string>(this.OnOption2Select);
-            this.EventOptions[1].GetExtraFormatLanguageKeys =
-                new Func<List<string>>(this.Option2GetExtraFormatLanguageKeys);
+            this.EventOptions[1].GetExtraFormatLanguageKeys = new Func<List<string>>(this.Option2GetExtraFormatLanguageKeys);
             this.EventOptions[1].DefaultState = 0;
             this.EventOptions[1].OneTimeOnly = false;
             this.OnOption2Create();
+            
+            // 选项3初始化
             this.EventOptions[2].OnOptionVisibleCheck = new Func<bool>(this.OnOption3VisibleCheck);
             this.EventOptions[2].OnOptionAvailableCheck = new Func<bool>(this.OnOption3AvailableCheck);
             this.EventOptions[2].GetReplacedContent = new Func<string>(this.OnOption3GetReplacedContent);
             this.EventOptions[2].OnOptionSelect = new Func<string>(this.OnOption3Select);
-            this.EventOptions[2].GetExtraFormatLanguageKeys =
-                new Func<List<string>>(this.Option3GetExtraFormatLanguageKeys);
+            this.EventOptions[2].GetExtraFormatLanguageKeys = new Func<List<string>>(this.Option3GetExtraFormatLanguageKeys);
             this.EventOptions[2].DefaultState = 0;
             this.EventOptions[2].OneTimeOnly = false;
             this.OnOption3Create();
+            
+            // 选项4初始化
             this.EventOptions[3].OnOptionVisibleCheck = new Func<bool>(this.OnOption4VisibleCheck);
             this.EventOptions[3].OnOptionAvailableCheck = new Func<bool>(this.OnOption4AvailableCheck);
             this.EventOptions[3].GetReplacedContent = new Func<string>(this.OnOption4GetReplacedContent);
             this.EventOptions[3].OnOptionSelect = new Func<string>(this.OnOption4Select);
-            this.EventOptions[3].GetExtraFormatLanguageKeys =
-                new Func<List<string>>(this.Option4GetExtraFormatLanguageKeys);
+            this.EventOptions[3].GetExtraFormatLanguageKeys = new Func<List<string>>(this.Option4GetExtraFormatLanguageKeys);
             this.EventOptions[3].DefaultState = 0;
             this.EventOptions[3].OneTimeOnly = false;
             this.OnOption4Create();
+            
+            // 选项5初始化
             this.EventOptions[4].OnOptionVisibleCheck = new Func<bool>(this.OnOption5VisibleCheck);
             this.EventOptions[4].OnOptionAvailableCheck = new Func<bool>(this.OnOption5AvailableCheck);
             this.EventOptions[4].GetReplacedContent = new Func<string>(this.OnOption5GetReplacedContent);
             this.EventOptions[4].OnOptionSelect = new Func<string>(this.OnOption5Select);
-            this.EventOptions[4].GetExtraFormatLanguageKeys =
-                new Func<List<string>>(this.Option5GetExtraFormatLanguageKeys);
+            this.EventOptions[4].GetExtraFormatLanguageKeys = new Func<List<string>>(this.Option5GetExtraFormatLanguageKeys);
             this.EventOptions[4].DefaultState = 0;
             this.EventOptions[4].OneTimeOnly = false;
             this.OnOption5Create();
+            
+            // 选项6初始化
             this.EventOptions[5].OnOptionVisibleCheck = new Func<bool>(this.OnOption6VisibleCheck);
             this.EventOptions[5].OnOptionAvailableCheck = new Func<bool>(this.OnOption6AvailableCheck);
             this.EventOptions[5].GetReplacedContent = new Func<string>(this.OnOption6GetReplacedContent);
             this.EventOptions[5].OnOptionSelect = new Func<string>(this.OnOption6Select);
-            this.EventOptions[5].GetExtraFormatLanguageKeys =
-                new Func<List<string>>(this.Option6GetExtraFormatLanguageKeys);
+            this.EventOptions[5].GetExtraFormatLanguageKeys = new Func<List<string>>(this.Option6GetExtraFormatLanguageKeys);
             this.EventOptions[5].DefaultState = 0;
             this.EventOptions[5].OneTimeOnly = false;
             this.OnOption6Create();
+            
+            // 选项7初始化
             this.EventOptions[6].OnOptionVisibleCheck = new Func<bool>(this.OnOption7VisibleCheck);
             this.EventOptions[6].OnOptionAvailableCheck = new Func<bool>(this.OnOption7AvailableCheck);
             this.EventOptions[6].GetReplacedContent = new Func<string>(this.OnOption7GetReplacedContent);
             this.EventOptions[6].OnOptionSelect = new Func<string>(this.OnOption7Select);
-            this.EventOptions[6].GetExtraFormatLanguageKeys =
-                new Func<List<string>>(this.Option7GetExtraFormatLanguageKeys);
+            this.EventOptions[6].GetExtraFormatLanguageKeys = new Func<List<string>>(this.Option7GetExtraFormatLanguageKeys);
             this.EventOptions[6].DefaultState = 0;
             this.EventOptions[6].OneTimeOnly = false;
             this.OnOption7Create();
+            
+            // 选项8初始化
             this.EventOptions[7].OnOptionVisibleCheck = new Func<bool>(this.OnOption8VisibleCheck);
             this.EventOptions[7].OnOptionAvailableCheck = new Func<bool>(this.OnOption8AvailableCheck);
             this.EventOptions[7].GetReplacedContent = new Func<string>(this.OnOption8GetReplacedContent);
             this.EventOptions[7].OnOptionSelect = new Func<string>(this.OnOption8Select);
-            this.EventOptions[7].GetExtraFormatLanguageKeys =
-                new Func<List<string>>(this.Option8GetExtraFormatLanguageKeys);
+            this.EventOptions[7].GetExtraFormatLanguageKeys = new Func<List<string>>(this.Option8GetExtraFormatLanguageKeys);
             this.EventOptions[7].DefaultState = 0;
             this.EventOptions[7].OneTimeOnly = false;
             this.OnOption8Create();
+            
+            // 选项9初始化
             this.EventOptions[8].OnOptionVisibleCheck = new Func<bool>(this.OnOption9VisibleCheck);
             this.EventOptions[8].OnOptionAvailableCheck = new Func<bool>(this.OnOption9AvailableCheck);
             this.EventOptions[8].GetReplacedContent = new Func<string>(this.OnOption9GetReplacedContent);
             this.EventOptions[8].OnOptionSelect = new Func<string>(this.OnOption9Select);
-            this.EventOptions[8].GetExtraFormatLanguageKeys =
-                new Func<List<string>>(this.Option9GetExtraFormatLanguageKeys);
+            this.EventOptions[8].GetExtraFormatLanguageKeys = new Func<List<string>>(this.Option9GetExtraFormatLanguageKeys);
             this.EventOptions[8].DefaultState = 0;
             this.EventOptions[8].OneTimeOnly = false;
             this.OnOption9Create();
+            
+            // 选项10初始化
             this.EventOptions[9].OnOptionVisibleCheck = new Func<bool>(this.OnOption10VisibleCheck);
             this.EventOptions[9].OnOptionAvailableCheck = new Func<bool>(this.OnOption10AvailableCheck);
             this.EventOptions[9].GetReplacedContent = new Func<string>(this.OnOption10GetReplacedContent);
             this.EventOptions[9].OnOptionSelect = new Func<string>(this.OnOption10Select);
-            this.EventOptions[9].GetExtraFormatLanguageKeys =
-                new Func<List<string>>(this.Option10GetExtraFormatLanguageKeys);
+            this.EventOptions[9].GetExtraFormatLanguageKeys = new Func<List<string>>(this.Option10GetExtraFormatLanguageKeys);
             this.EventOptions[9].DefaultState = 0;
             this.EventOptions[9].OneTimeOnly = false;
             this.OnOption10Create();
+            
+            // 选项11初始化
             this.EventOptions[10].OnOptionVisibleCheck = new Func<bool>(this.OnOption11VisibleCheck);
             this.EventOptions[10].OnOptionAvailableCheck = new Func<bool>(this.OnOption11AvailableCheck);
             this.EventOptions[10].GetReplacedContent = new Func<string>(this.OnOption11GetReplacedContent);
             this.EventOptions[10].OnOptionSelect = new Func<string>(this.OnOption11Select);
-            this.EventOptions[10].GetExtraFormatLanguageKeys =
-                new Func<List<string>>(this.Option11GetExtraFormatLanguageKeys);
+            this.EventOptions[10].GetExtraFormatLanguageKeys = new Func<List<string>>(this.Option11GetExtraFormatLanguageKeys);
             this.EventOptions[10].DefaultState = 0;
             this.EventOptions[10].OneTimeOnly = false;
             this.OnOption11Create();
+            
+            // 选项12初始化 - 新增
             this.EventOptions[11].OnOptionVisibleCheck = new Func<bool>(this.OnOption12VisibleCheck);
             this.EventOptions[11].OnOptionAvailableCheck = new Func<bool>(this.OnOption12AvailableCheck);
             this.EventOptions[11].GetReplacedContent = new Func<string>(this.OnOption12GetReplacedContent);
             this.EventOptions[11].OnOptionSelect = new Func<string>(this.OnOption12Select);
-            this.EventOptions[11].GetExtraFormatLanguageKeys =
-                new Func<List<string>>(this.Option12GetExtraFormatLanguageKeys);
+            this.EventOptions[11].GetExtraFormatLanguageKeys = new Func<List<string>>(this.Option12GetExtraFormatLanguageKeys);
             this.EventOptions[11].DefaultState = 0;
             this.EventOptions[11].OneTimeOnly = false;
             this.OnOption12Create();
 
+            // 选项13初始化 - 新增
             this.EventOptions[12].OnOptionVisibleCheck = new Func<bool>(this.OnOption13VisibleCheck);
             this.EventOptions[12].OnOptionAvailableCheck = new Func<bool>(this.OnOption13AvailableCheck);
             this.EventOptions[12].GetReplacedContent = new Func<string>(this.OnOption13GetReplacedContent);
             this.EventOptions[12].OnOptionSelect = new Func<string>(this.OnOption13Select);
-            this.EventOptions[12].GetExtraFormatLanguageKeys =
-                new Func<List<string>>(this.Option13GetExtraFormatLanguageKeys);
+            this.EventOptions[12].GetExtraFormatLanguageKeys = new Func<List<string>>(this.Option13GetExtraFormatLanguageKeys);
             this.EventOptions[12].DefaultState = 0;
             this.EventOptions[12].OneTimeOnly = false;
             this.OnOption13Create();
 
+            // 选项14初始化 - 新增
             this.EventOptions[13].OnOptionVisibleCheck = new Func<bool>(this.OnOption14VisibleCheck);
             this.EventOptions[13].OnOptionAvailableCheck = new Func<bool>(this.OnOption14AvailableCheck);
             this.EventOptions[13].GetReplacedContent = new Func<string>(this.OnOption14GetReplacedContent);
             this.EventOptions[13].OnOptionSelect = new Func<string>(this.OnOption14Select);
-            this.EventOptions[13].GetExtraFormatLanguageKeys =
-                new Func<List<string>>(this.Option14GetExtraFormatLanguageKeys);
+            this.EventOptions[13].GetExtraFormatLanguageKeys = new Func<List<string>>(this.Option14GetExtraFormatLanguageKeys);
             this.EventOptions[13].DefaultState = 0;
             this.EventOptions[13].OneTimeOnly = false;
             this.OnOption14Create();
 
+            // 选项99初始化 - 返回选项
             this.EventOptions[14].OnOptionVisibleCheck = new Func<bool>(this.OnOption99VisibleCheck);
             this.EventOptions[14].OnOptionAvailableCheck = new Func<bool>(this.OnOption99AvailableCheck);
             this.EventOptions[14].GetReplacedContent = new Func<string>(this.OnOption99GetReplacedContent);
             this.EventOptions[14].OnOptionSelect = new Func<string>(this.OnOption99Select);
-            this.EventOptions[14].GetExtraFormatLanguageKeys =
-                new Func<List<string>>(this.Option99GetExtraFormatLanguageKeys);
+            this.EventOptions[14].GetExtraFormatLanguageKeys = new Func<List<string>>(this.Option99GetExtraFormatLanguageKeys);
             this.EventOptions[14].DefaultState = 0;
             this.EventOptions[14].OneTimeOnly = false;
             this.OnOption99Create();
         }
 
-        // Token: 0x0600001E RID: 30 RVA: 0x00003368 File Offset: 0x00001568
+        /// <summary>
+        /// 检查事件触发条件
+        /// </summary>
+        /// <returns>总是返回true，因为此事件由其他事件直接跳转</returns>
         public override bool OnCheckEventCondition()
         {
             return true;
         }
 
-        // Token: 0x0600001F RID: 31 RVA: 0x00002491 File Offset: 0x00000691
-        public override void OnEventEnter() { }
-
-        // Token: 0x06000020 RID: 32 RVA: 0x00002491 File Offset: 0x00000691
-        public override void OnEventExit() { }
-
-        // Token: 0x06000021 RID: 33 RVA: 0x0000337C File Offset: 0x0000157C
-        public override string GetReplacedContentString()
+        /// <summary>
+        /// 事件进入时执行
+        /// </summary>
+        public override void OnEventEnter()
         {
-            int num = 0;
-            this.ArgBox.Get("addNewGrade", ref num);
-            return string.Format("可以炼出{0}株上等药材。", num);
+            // 不需要特殊处理
         }
 
-        // Token: 0x06000022 RID: 34 RVA: 0x000033B4 File Offset: 0x000015B4
+        /// <summary>
+        /// 事件退出时执行
+        /// </summary>
+        public override void OnEventExit()
+        {
+            // 不需要特殊处理
+        }
+
+        /// <summary>
+        /// 获取替换内容字符串
+        /// </summary>
+        /// <returns>显示可以炼制多少上等药材的字符串</returns>
+        public override string GetReplacedContentString()
+        {
+            int upgradeCount = 0;
+            this.ArgBox.Get("addNewGrade", ref upgradeCount);
+            return string.Format("可以炼出{0}株上等药材。", upgradeCount);
+        }
+
+        /// <summary>
+        /// 获取额外的格式语言键
+        /// </summary>
+        /// <returns>额外的语言键列表</returns>
         public override List<string> GetExtraFormatLanguageKeys()
         {
             return null;
         }
 
-        // Token: 0x06000023 RID: 35 RVA: 0x00002491 File Offset: 0x00000691
+        // ===================== 选项1-11方法 =====================
+
+        /// <summary>
+        /// 创建选项1
+        /// </summary>
         private void OnOption1Create() { }
 
-        // Token: 0x06000024 RID: 36 RVA: 0x000033C8 File Offset: 0x000015C8
+        /// <summary>
+        /// 检查选项1是否可见
+        /// </summary>
+        /// <returns>总是可见</returns>
         private bool OnOption1VisibleCheck()
         {
             return true;
         }
 
-        // Token: 0x06000025 RID: 37 RVA: 0x000033DC File Offset: 0x000015DC
+        /// <summary>
+        /// 检查选项1是否可用
+        /// </summary>
+        /// <returns>总是可用</returns>
         private bool OnOption1AvailableCheck()
         {
             return true;
         }
 
-        // Token: 0x06000026 RID: 38 RVA: 0x000033F0 File Offset: 0x000015F0
+        /// <summary>
+        /// 获取选项1的替换内容
+        /// </summary>
+        /// <returns>替换后的内容</returns>
         private string OnOption1GetReplacedContent()
         {
             return string.Empty;
         }
 
-        // Token: 0x06000027 RID: 39 RVA: 0x00003408 File Offset: 0x00001608
+        /// <summary>
+        /// 选项1被选中时执行 - 处理药材ID 234-235
+        /// </summary>
+        /// <returns>空字符串</returns>
         private string OnOption1Select()
         {
-            this.AddNewGrade(234, 235);
+            this.ProcessHerbUpgrade(234, 235);
             return string.Empty;
         }
 
-        // Token: 0x06000028 RID: 40 RVA: 0x00003430 File Offset: 0x00001630
-        private bool IsValidNumber(int x, int y)
-        {
-            return x >= 140 && x <= 235 && (x - 140) % 4 == y;
-        }
-
-        // Token: 0x06000029 RID: 41 RVA: 0x00003464 File Offset: 0x00001664
-        public void AddNewGrade(short qi, short jue)
-        {
-            int num = 0;
-            this.ArgBox.Get("GradeReq", ref num);
-            int num2 = 0;
-            Character character = this.ArgBox.GetCharacter("RoleTaiwu");
-            Inventory inventory = character.GetInventory();
-            foreach (KeyValuePair<ItemKey, int> keyValuePair in inventory.Items)
-            {
-                ItemKey key = keyValuePair.Key;
-                int value = keyValuePair.Value;
-                bool flag = key.ItemType == 5;
-                if (flag)
-                {
-                    short templateId = key.TemplateId;
-                    bool flag2 = this.IsValidNumber((int)templateId, num);
-                    bool flag3 = flag2;
-                    if (flag3)
-                    {
-                        num2 += value;
-                        EventHelper.RemoveInventoryItem(character, key, value, true);
-                    }
-                }
-            }
-
-            bool flag4 = num == 1;
-            if (flag4)
-            {
-                int num3 = num2 / 3;
-                ItemKey item = EventHelper.AddItemToRole(character, 5, qi, num3, -1);
-                EventHelper.ShowGetItemPageForItems(new List<ValueTuple<ItemKey, int>>
-                {
-                    new ValueTuple<ItemKey, int>(item, num3)
-                }, "", this.ArgBox, false);
-            }
-            else
-            {
-                bool flag5 = num == 2;
-                if (flag5)
-                {
-                    int num3 = num2 / 5;
-                    ItemKey item2 = EventHelper.AddItemToRole(character, 5, jue, num3, -1);
-                    EventHelper.ShowGetItemPageForItems(new List<ValueTuple<ItemKey, int>>
-                    {
-                        new ValueTuple<ItemKey, int>(item2, num3)
-                    }, "", this.ArgBox, false);
-                }
-            }
-        }
-
-        // Token: 0x0600002A RID: 42 RVA: 0x000035C4 File Offset: 0x000017C4
+        /// <summary>
+        /// 获取选项1的额外格式语言键
+        /// </summary>
+        /// <returns>语言键列表</returns>
         public List<string> Option1GetExtraFormatLanguageKeys()
         {
             return null;
         }
 
-        // Token: 0x0600002B RID: 43 RVA: 0x00002491 File Offset: 0x00000691
+        /// <summary>
+        /// 创建选项2
+        /// </summary>
         private void OnOption2Create() { }
 
-        // Token: 0x0600002C RID: 44 RVA: 0x000035D8 File Offset: 0x000017D8
+        /// <summary>
+        /// 检查选项2是否可见
+        /// </summary>
+        /// <returns>总是可见</returns>
         private bool OnOption2VisibleCheck()
         {
             return true;
         }
 
-        // Token: 0x0600002D RID: 45 RVA: 0x000035EC File Offset: 0x000017EC
+        /// <summary>
+        /// 检查选项2是否可用
+        /// </summary>
+        /// <returns>总是可用</returns>
         private bool OnOption2AvailableCheck()
         {
             return true;
         }
 
-        // Token: 0x0600002E RID: 46 RVA: 0x00003600 File Offset: 0x00001800
+        /// <summary>
+        /// 获取选项2的替换内容
+        /// </summary>
+        /// <returns>替换后的内容</returns>
         private string OnOption2GetReplacedContent()
         {
             return string.Empty;
         }
 
-        // Token: 0x0600002F RID: 47 RVA: 0x00003618 File Offset: 0x00001818
+        /// <summary>
+        /// 选项2被选中时执行 - 处理药材ID 222-223
+        /// </summary>
+        /// <returns>空字符串</returns>
         private string OnOption2Select()
         {
-            this.AddNewGrade(222, 223);
+            this.ProcessHerbUpgrade(222, 223);
             return string.Empty;
         }
 
-        // Token: 0x06000030 RID: 48 RVA: 0x00003640 File Offset: 0x00001840
+        /// <summary>
+        /// 获取选项2的额外格式语言键
+        /// </summary>
+        /// <returns>语言键列表</returns>
         public List<string> Option2GetExtraFormatLanguageKeys()
         {
             return null;
         }
 
-        // Token: 0x06000031 RID: 49 RVA: 0x00002491 File Offset: 0x00000691
+        /// <summary>
+        /// 创建选项3
+        /// </summary>
         private void OnOption3Create() { }
 
-        // Token: 0x06000032 RID: 50 RVA: 0x00003654 File Offset: 0x00001854
+        /// <summary>
+        /// 检查选项3是否可见
+        /// </summary>
+        /// <returns>总是可见</returns>
         private bool OnOption3VisibleCheck()
         {
             return true;
         }
 
-        // Token: 0x06000033 RID: 51 RVA: 0x00003668 File Offset: 0x00001868
+        /// <summary>
+        /// 检查选项3是否可用
+        /// </summary>
+        /// <returns>总是可用</returns>
         private bool OnOption3AvailableCheck()
         {
             return true;
         }
 
-        // Token: 0x06000034 RID: 52 RVA: 0x0000367C File Offset: 0x0000187C
+        /// <summary>
+        /// 获取选项3的替换内容
+        /// </summary>
+        /// <returns>替换后的内容</returns>
         private string OnOption3GetReplacedContent()
         {
             return string.Empty;
         }
 
-        // Token: 0x06000035 RID: 53 RVA: 0x00003694 File Offset: 0x00001894
+        /// <summary>
+        /// 选项3被选中时执行 - 处理药材ID 150-151
+        /// </summary>
+        /// <returns>空字符串</returns>
         private string OnOption3Select()
         {
-            this.AddNewGrade(150, 151);
+            this.ProcessHerbUpgrade(150, 151);
             return string.Empty;
         }
 
-        // Token: 0x06000036 RID: 54 RVA: 0x000036BC File Offset: 0x000018BC
+        /// <summary>
+        /// 获取选项3的额外格式语言键
+        /// </summary>
+        /// <returns>语言键列表</returns>
         public List<string> Option3GetExtraFormatLanguageKeys()
         {
             return null;
         }
 
-        // Token: 0x06000037 RID: 55 RVA: 0x00002491 File Offset: 0x00000691
+        /// <summary>
+        /// 创建选项4
+        /// </summary>
         private void OnOption4Create() { }
 
-        // Token: 0x06000038 RID: 56 RVA: 0x000036D0 File Offset: 0x000018D0
+        /// <summary>
+        /// 检查选项4是否可见
+        /// </summary>
+        /// <returns>总是可见</returns>
         private bool OnOption4VisibleCheck()
         {
             return true;
         }
 
-        // Token: 0x06000039 RID: 57 RVA: 0x000036E4 File Offset: 0x000018E4
+        /// <summary>
+        /// 检查选项4是否可用
+        /// </summary>
+        /// <returns>总是可用</returns>
         private bool OnOption4AvailableCheck()
         {
             return true;
         }
 
-        // Token: 0x0600003A RID: 58 RVA: 0x000036F8 File Offset: 0x000018F8
+        /// <summary>
+        /// 获取选项4的替换内容
+        /// </summary>
+        /// <returns>替换后的内容</returns>
         private string OnOption4GetReplacedContent()
         {
             return string.Empty;
         }
 
-        // Token: 0x0600003B RID: 59 RVA: 0x00003710 File Offset: 0x00001910
+        /// <summary>
+        /// 选项4被选中时执行 - 处理药材ID 166-167
+        /// </summary>
+        /// <returns>空字符串</returns>
         private string OnOption4Select()
         {
-            this.AddNewGrade(166, 167);
+            this.ProcessHerbUpgrade(166, 167);
             return string.Empty;
         }
 
-        // Token: 0x0600003C RID: 60 RVA: 0x00003738 File Offset: 0x00001938
+        /// <summary>
+        /// 获取选项4的额外格式语言键
+        /// </summary>
+        /// <returns>语言键列表</returns>
         public List<string> Option4GetExtraFormatLanguageKeys()
         {
             return null;
         }
 
-        // Token: 0x0600003D RID: 61 RVA: 0x00002491 File Offset: 0x00000691
+        /// <summary>
+        /// 创建选项5
+        /// </summary>
         private void OnOption5Create() { }
 
-        // Token: 0x0600003E RID: 62 RVA: 0x0000374C File Offset: 0x0000194C
+        /// <summary>
+        /// 检查选项5是否可见
+        /// </summary>
+        /// <returns>总是可见</returns>
         private bool OnOption5VisibleCheck()
         {
             return true;
         }
 
-        // Token: 0x0600003F RID: 63 RVA: 0x00003760 File Offset: 0x00001960
+        /// <summary>
+        /// 检查选项5是否可用
+        /// </summary>
+        /// <returns>总是可用</returns>
         private bool OnOption5AvailableCheck()
         {
             return true;
         }
 
-        // Token: 0x06000040 RID: 64 RVA: 0x00003774 File Offset: 0x00001974
+        /// <summary>
+        /// 获取选项5的替换内容
+        /// </summary>
+        /// <returns>替换后的内容</returns>
         private string OnOption5GetReplacedContent()
         {
             return string.Empty;
         }
 
-        // Token: 0x06000041 RID: 65 RVA: 0x0000378C File Offset: 0x0000198C
+        /// <summary>
+        /// 选项5被选中时执行 - 处理药材ID 154-155
+        /// </summary>
+        /// <returns>空字符串</returns>
         private string OnOption5Select()
         {
-            this.AddNewGrade(154, 155);
+            this.ProcessHerbUpgrade(154, 155);
             return string.Empty;
         }
 
-        // Token: 0x06000042 RID: 66 RVA: 0x000037B4 File Offset: 0x000019B4
+        /// <summary>
+        /// 获取选项5的额外格式语言键
+        /// </summary>
+        /// <returns>语言键列表</returns>
         public List<string> Option5GetExtraFormatLanguageKeys()
         {
             return null;
         }
 
-        // Token: 0x06000043 RID: 67 RVA: 0x00002491 File Offset: 0x00000691
+        /// <summary>
+        /// 创建选项6
+        /// </summary>
         private void OnOption6Create() { }
 
-        // Token: 0x06000044 RID: 68 RVA: 0x000037C8 File Offset: 0x000019C8
+        /// <summary>
+        /// 检查选项6是否可见
+        /// </summary>
+        /// <returns>总是可见</returns>
         private bool OnOption6VisibleCheck()
         {
             return true;
         }
 
-        // Token: 0x06000045 RID: 69 RVA: 0x000037DC File Offset: 0x000019DC
+        /// <summary>
+        /// 检查选项6是否可用
+        /// </summary>
+        /// <returns>总是可用</returns>
         private bool OnOption6AvailableCheck()
         {
             return true;
         }
 
-        // Token: 0x06000046 RID: 70 RVA: 0x000037F0 File Offset: 0x000019F0
+        /// <summary>
+        /// 获取选项6的替换内容
+        /// </summary>
+        /// <returns>替换后的内容</returns>
         private string OnOption6GetReplacedContent()
         {
             return string.Empty;
         }
 
-        // Token: 0x06000047 RID: 71 RVA: 0x00003808 File Offset: 0x00001A08
+        /// <summary>
+        /// 选项6被选中时执行 - 处理药材ID 186-187
+        /// </summary>
+        /// <returns>空字符串</returns>
         private string OnOption6Select()
         {
-            this.AddNewGrade(186, 187);
+            this.ProcessHerbUpgrade(186, 187);
             return string.Empty;
         }
 
-        // Token: 0x06000048 RID: 72 RVA: 0x00003830 File Offset: 0x00001A30
+        /// <summary>
+        /// 获取选项6的额外格式语言键
+        /// </summary>
+        /// <returns>语言键列表</returns>
         public List<string> Option6GetExtraFormatLanguageKeys()
         {
             return null;
         }
 
-        // Token: 0x06000049 RID: 73 RVA: 0x00002491 File Offset: 0x00000691
+        /// <summary>
+        /// 创建选项7
+        /// </summary>
         private void OnOption7Create() { }
 
-        // Token: 0x0600004A RID: 74 RVA: 0x00003844 File Offset: 0x00001A44
+        /// <summary>
+        /// 检查选项7是否可见
+        /// </summary>
+        /// <returns>总是可见</returns>
         private bool OnOption7VisibleCheck()
         {
             return true;
         }
 
-        // Token: 0x0600004B RID: 75 RVA: 0x00003858 File Offset: 0x00001A58
+        /// <summary>
+        /// 检查选项7是否可用
+        /// </summary>
+        /// <returns>总是可用</returns>
         private bool OnOption7AvailableCheck()
         {
             return true;
         }
 
-        // Token: 0x0600004C RID: 76 RVA: 0x0000386C File Offset: 0x00001A6C
+        /// <summary>
+        /// 获取选项7的替换内容
+        /// </summary>
+        /// <returns>替换后的内容</returns>
         private string OnOption7GetReplacedContent()
         {
             return string.Empty;
         }
 
-        // Token: 0x0600004D RID: 77 RVA: 0x00003884 File Offset: 0x00001A84
+        /// <summary>
+        /// 选项7被选中时执行 - 处理药材ID 218-219
+        /// </summary>
+        /// <returns>空字符串</returns>
         private string OnOption7Select()
         {
-            this.AddNewGrade(218, 219);
+            this.ProcessHerbUpgrade(218, 219);
             return string.Empty;
         }
 
-        // Token: 0x0600004E RID: 78 RVA: 0x000038AC File Offset: 0x00001AAC
+        /// <summary>
+        /// 获取选项7的额外格式语言键
+        /// </summary>
+        /// <returns>语言键列表</returns>
         public List<string> Option7GetExtraFormatLanguageKeys()
         {
             return null;
         }
 
-        // Token: 0x0600004F RID: 79 RVA: 0x00002491 File Offset: 0x00000691
+        /// <summary>
+        /// 创建选项8
+        /// </summary>
         private void OnOption8Create() { }
 
-        // Token: 0x06000050 RID: 80 RVA: 0x000038C0 File Offset: 0x00001AC0
+        /// <summary>
+        /// 检查选项8是否可见
+        /// </summary>
+        /// <returns>总是可见</returns>
         private bool OnOption8VisibleCheck()
         {
             return true;
         }
 
-        // Token: 0x06000051 RID: 81 RVA: 0x000038D4 File Offset: 0x00001AD4
+        /// <summary>
+        /// 检查选项8是否可用
+        /// </summary>
+        /// <returns>总是可用</returns>
         private bool OnOption8AvailableCheck()
         {
             return true;
         }
 
-        // Token: 0x06000052 RID: 82 RVA: 0x000038E8 File Offset: 0x00001AE8
+        /// <summary>
+        /// 获取选项8的替换内容
+        /// </summary>
+        /// <returns>替换后的内容</returns>
         private string OnOption8GetReplacedContent()
         {
             return string.Empty;
         }
 
-        // Token: 0x06000053 RID: 83 RVA: 0x00003900 File Offset: 0x00001B00
+        /// <summary>
+        /// 选项8被选中时执行 - 处理药材ID 182-183
+        /// </summary>
+        /// <returns>空字符串</returns>
         private string OnOption8Select()
         {
-            this.AddNewGrade(182, 183);
+            this.ProcessHerbUpgrade(182, 183);
             return string.Empty;
         }
 
-        // Token: 0x06000054 RID: 84 RVA: 0x00003928 File Offset: 0x00001B28
+        /// <summary>
+        /// 获取选项8的额外格式语言键
+        /// </summary>
+        /// <returns>语言键列表</returns>
         public List<string> Option8GetExtraFormatLanguageKeys()
         {
             return null;
         }
 
-        // Token: 0x06000055 RID: 85 RVA: 0x00002491 File Offset: 0x00000691
+        /// <summary>
+        /// 创建选项9
+        /// </summary>
         private void OnOption9Create() { }
 
-        // Token: 0x06000056 RID: 86 RVA: 0x0000393C File Offset: 0x00001B3C
+        /// <summary>
+        /// 检查选项9是否可见
+        /// </summary>
+        /// <returns>总是可见</returns>
         private bool OnOption9VisibleCheck()
         {
             return true;
         }
 
-        // Token: 0x06000057 RID: 87 RVA: 0x00003950 File Offset: 0x00001B50
+        /// <summary>
+        /// 检查选项9是否可用
+        /// </summary>
+        /// <returns>总是可用</returns>
         private bool OnOption9AvailableCheck()
         {
             return true;
         }
 
-        // Token: 0x06000058 RID: 88 RVA: 0x00003964 File Offset: 0x00001B64
+        /// <summary>
+        /// 获取选项9的替换内容
+        /// </summary>
+        /// <returns>替换后的内容</returns>
         private string OnOption9GetReplacedContent()
         {
             return string.Empty;
         }
 
-        // Token: 0x06000059 RID: 89 RVA: 0x0000397C File Offset: 0x00001B7C
+        /// <summary>
+        /// 选项9被选中时执行 - 处理药材ID 198-199
+        /// </summary>
+        /// <returns>空字符串</returns>
         private string OnOption9Select()
         {
-            this.AddNewGrade(198, 199);
+            this.ProcessHerbUpgrade(198, 199);
             return string.Empty;
         }
 
-        // Token: 0x0600005A RID: 90 RVA: 0x000039A4 File Offset: 0x00001BA4
+        /// <summary>
+        /// 获取选项9的额外格式语言键
+        /// </summary>
+        /// <returns>语言键列表</returns>
         public List<string> Option9GetExtraFormatLanguageKeys()
         {
             return null;
         }
 
-        // Token: 0x0600005B RID: 91 RVA: 0x00002491 File Offset: 0x00000691
+        /// <summary>
+        /// 创建选项10
+        /// </summary>
         private void OnOption10Create() { }
 
-        // Token: 0x0600005C RID: 92 RVA: 0x000039B8 File Offset: 0x00001BB8
+        /// <summary>
+        /// 检查选项10是否可见
+        /// </summary>
+        /// <returns>总是可见</returns>
         private bool OnOption10VisibleCheck()
         {
             return true;
         }
 
-        // Token: 0x0600005D RID: 93 RVA: 0x000039CC File Offset: 0x00001BCC
+        /// <summary>
+        /// 检查选项10是否可用
+        /// </summary>
+        /// <returns>总是可用</returns>
         private bool OnOption10AvailableCheck()
         {
             return true;
         }
 
-        // Token: 0x0600005E RID: 94 RVA: 0x000039E0 File Offset: 0x00001BE0
+        /// <summary>
+        /// 获取选项10的替换内容
+        /// </summary>
+        /// <returns>替换后的内容</returns>
         private string OnOption10GetReplacedContent()
         {
             return string.Empty;
         }
 
-        // Token: 0x0600005F RID: 95 RVA: 0x000039F8 File Offset: 0x00001BF8
+        /// <summary>
+        /// 选项10被选中时执行 - 处理药材ID 214-215
+        /// </summary>
+        /// <returns>空字符串</returns>
         private string OnOption10Select()
         {
-            this.AddNewGrade(214, 215);
+            this.ProcessHerbUpgrade(214, 215);
             return string.Empty;
         }
 
-        // Token: 0x06000060 RID: 96 RVA: 0x00003A20 File Offset: 0x00001C20
+        /// <summary>
+        /// 获取选项10的额外格式语言键
+        /// </summary>
+        /// <returns>语言键列表</returns>
         public List<string> Option10GetExtraFormatLanguageKeys()
         {
             return null;
         }
 
-        // Token: 0x06000061 RID: 97 RVA: 0x00002491 File Offset: 0x00000691
+        /// <summary>
+        /// 创建选项11
+        /// </summary>
         private void OnOption11Create() { }
 
-        // Token: 0x06000062 RID: 98 RVA: 0x00003A34 File Offset: 0x00001C34
+        /// <summary>
+        /// 检查选项11是否可见
+        /// </summary>
+        /// <returns>总是可见</returns>
         private bool OnOption11VisibleCheck()
         {
             return true;
         }
 
-        // Token: 0x06000063 RID: 99 RVA: 0x00003A48 File Offset: 0x00001C48
+        /// <summary>
+        /// 检查选项11是否可用
+        /// </summary>
+        /// <returns>总是可用</returns>
         private bool OnOption11AvailableCheck()
         {
             return true;
         }
 
-        // Token: 0x06000064 RID: 100 RVA: 0x00003A5C File Offset: 0x00001C5C
+        /// <summary>
+        /// 获取选项11的替换内容 - 攻速武用
+        /// </summary>
+        /// <returns>"攻速武用"</returns>
         private string OnOption11GetReplacedContent()
         {
-            return "移速步伐";
+            return "攻速武用";
         }
 
-        // Token: 0x06000065 RID: 101 RVA: 0x00003A74 File Offset: 0x00001C74
+        /// <summary>
+        /// 选项11被选中时执行 - 处理药材ID 202-203
+        /// </summary>
+        /// <returns>空字符串</returns>
         private string OnOption11Select()
         {
-            this.AddNewGrade(202, 203);
+            this.ProcessHerbUpgrade(202, 203);
             return string.Empty;
         }
 
-        // Token: 0x06000066 RID: 102 RVA: 0x00003A8C File Offset: 0x00001C8C
+        /// <summary>
+        /// 获取选项11的额外格式语言键
+        /// </summary>
+        /// <returns>语言键列表</returns>
         public List<string> Option11GetExtraFormatLanguageKeys()
         {
             return null;
         }
 
+        // ===================== 新增选项方法 =====================
+
+        /// <summary>
+        /// 创建选项12 - 移速步伐
+        /// </summary>
         private void OnOption12Create() { }
 
+        /// <summary>
+        /// 检查选项12是否可见
+        /// </summary>
+        /// <returns>总是可见</returns>
         private bool OnOption12VisibleCheck()
         {
             return true;
         }
 
+        /// <summary>
+        /// 检查选项12是否可用
+        /// </summary>
+        /// <returns>总是可用</returns>
         private bool OnOption12AvailableCheck()
         {
             return true;
         }
 
+        /// <summary>
+        /// 获取选项12的替换内容 - 移速步伐
+        /// </summary>
+        /// <returns>"移速步伐"</returns>
         private string OnOption12GetReplacedContent()
         {
-            return "攻速武用";
+            return "移速步伐";
         }
 
+        /// <summary>
+        /// 选项12被选中时执行 - 处理药材ID 170-171
+        /// </summary>
+        /// <returns>空字符串</returns>
         private string OnOption12Select()
         {
-            this.AddNewGrade(170, 171);
+            this.ProcessHerbUpgrade(170, 171);
             return string.Empty;
         }
 
+        /// <summary>
+        /// 获取选项12的额外格式语言键
+        /// </summary>
+        /// <returns>语言键列表</returns>
         public List<string> Option12GetExtraFormatLanguageKeys()
         {
             return null;
         }
 
+        /// <summary>
+        /// 创建选项13 - 提架回复
+        /// </summary>
         private void OnOption13Create() { }
 
+        /// <summary>
+        /// 检查选项13是否可见
+        /// </summary>
+        /// <returns>总是可见</returns>
         private bool OnOption13VisibleCheck()
         {
             return true;
         }
 
+        /// <summary>
+        /// 检查选项13是否可用
+        /// </summary>
+        /// <returns>总是可用</returns>
         private bool OnOption13AvailableCheck()
         {
             return true;
         }
 
+        /// <summary>
+        /// 获取选项13的替换内容 - 提架回复
+        /// </summary>
+        /// <returns>"提架回复"</returns>
         private string OnOption13GetReplacedContent()
         {
             return "提架回复";
         }
 
+        /// <summary>
+        /// 选项13被选中时执行 - 处理药材ID 206-207
+        /// </summary>
+        /// <returns>空字符串</returns>
         private string OnOption13Select()
         {
-            this.AddNewGrade(206, 207);
+            this.ProcessHerbUpgrade(206, 207);
             return string.Empty;
         }
 
+        /// <summary>
+        /// 获取选项13的额外格式语言键
+        /// </summary>
+        /// <returns>语言键列表</returns>
         public List<string> Option13GetExtraFormatLanguageKeys()
         {
             return null;
         }
 
+        /// <summary>
+        /// 创建选项14 - 施展引奇
+        /// </summary>
         private void OnOption14Create() { }
 
+        /// <summary>
+        /// 检查选项14是否可见
+        /// </summary>
+        /// <returns>总是可见</returns>
         private bool OnOption14VisibleCheck()
         {
             return true;
         }
 
+        /// <summary>
+        /// 检查选项14是否可用
+        /// </summary>
+        /// <returns>总是可用</returns>
         private bool OnOption14AvailableCheck()
         {
             return true;
         }
 
+        /// <summary>
+        /// 获取选项14的替换内容 - 施展引奇
+        /// </summary>
+        /// <returns>"施展引奇"</returns>
         private string OnOption14GetReplacedContent()
         {
-            return "施展引气";
+            return "施展引奇";
         }
 
+        /// <summary>
+        /// 选项14被选中时执行 - 处理药材ID 230-231
+        /// </summary>
+        /// <returns>空字符串</returns>
         private string OnOption14Select()
         {
-            this.AddNewGrade(230, 231);
+            this.ProcessHerbUpgrade(230, 231);
             return string.Empty;
         }
 
+        /// <summary>
+        /// 获取选项14的额外格式语言键
+        /// </summary>
+        /// <returns>语言键列表</returns>
         public List<string> Option14GetExtraFormatLanguageKeys()
         {
             return null;
         }
 
-    #region 最后一个选项
+        // ===================== 返回选项方法 =====================
 
+        /// <summary>
+        /// 创建返回选项
+        /// </summary>
         private void OnOption99Create() { }
 
-        // Token: 0x06000062 RID: 98 RVA: 0x00003A34 File Offset: 0x00001C34
+        /// <summary>
+        /// 检查返回选项是否可见
+        /// </summary>
+        /// <returns>总是可见</returns>
         private bool OnOption99VisibleCheck()
         {
             return true;
         }
 
-        // Token: 0x06000063 RID: 99 RVA: 0x00003A48 File Offset: 0x00001C48
+        /// <summary>
+        /// 检查返回选项是否可用
+        /// </summary>
+        /// <returns>总是可用</returns>
         private bool OnOption99AvailableCheck()
         {
             return true;
         }
 
-        // Token: 0x06000064 RID: 100 RVA: 0x00003A5C File Offset: 0x00001C5C
+        /// <summary>
+        /// 获取返回选项的替换内容
+        /// </summary>
+        /// <returns>"(返回)"</returns>
         private string OnOption99GetReplacedContent()
         {
             return "(返回)";
         }
 
-        // Token: 0x06000065 RID: 101 RVA: 0x00003A74 File Offset: 0x00001C74
+        /// <summary>
+        /// 返回选项被选中时执行 - 返回上一级事件
+        /// </summary>
+        /// <returns>返回上一级事件的GUID</returns>
         private string OnOption99Select()
         {
             return "2bd02acd-244e-4f81-a194-502a0389c3f6";
         }
 
-        // Token: 0x06000066 RID: 102 RVA: 0x00003A8C File Offset: 0x00001C8C
+        /// <summary>
+        /// 获取返回选项的额外格式语言键
+        /// </summary>
+        /// <returns>语言键列表</returns>
         public List<string> Option99GetExtraFormatLanguageKeys()
         {
             return null;
         }
 
-    #endregion
+        // ===================== 公共辅助方法 =====================
+
+        /// <summary>
+        /// 检查药材编号是否有效
+        /// </summary>
+        /// <param name="itemId">药材ID</param>
+        /// <param name="grade">药材等级</param>
+        /// <returns>是否有效</returns>
+        private bool IsValidNumber(int itemId, int grade)
+        {
+            // 检查药材ID范围：140-235
+            // 药材ID公式：140 + (品级*4) + 等级偏移
+            // 其中grade为余数：0,1,2,3对应不同等级
+            return itemId >= 140 && itemId <= 235 && (itemId - 140) % 4 == grade;
+        }
+
+        /// <summary>
+        /// 核心药材升级处理方法
+        /// 从背包中移除低等级药材，添加高等级药材
+        /// </summary>
+        /// <param name="newHerbIdQi">新的奇类药材ID</param>
+        /// <param name="newHerbIdJue">新的绝类药材ID</param>
+        public void ProcessHerbUpgrade(short newHerbIdQi, short newHerbIdJue)
+        {
+            int requiredGrade = 0;
+            this.ArgBox.Get("GradeReq", ref requiredGrade);
+            
+            int totalHerbCount = 0;
+            Character playerCharacter = this.ArgBox.GetCharacter("RoleTaiwu");
+            Inventory inventory = playerCharacter.GetInventory();
+            
+            // 遍历背包，统计符合条件的药材数量并移除
+            foreach (KeyValuePair<ItemKey, int> itemPair in inventory.Items)
+            {
+                ItemKey itemKey = itemPair.Key;
+                int itemCount = itemPair.Value;
+                
+                // 只处理药材类型（ItemType == 5）
+                if (itemKey.ItemType == 5)
+                {
+                    short templateId = itemKey.TemplateId;
+                    
+                    // 检查是否是需求等级对应的药材
+                    bool isValidHerb = this.IsValidNumber((int)templateId, requiredGrade);
+                    if (isValidHerb)
+                    {
+                        totalHerbCount += itemCount;
+                        // 移除低等级药材
+                        EventHelper.RemoveInventoryItem(playerCharacter, itemKey, itemCount, true);
+                    }
+                }
+            }
+            
+            // 根据需求等级计算可升级的数量
+            int upgradeCount = 0;
+            if (requiredGrade == 1)
+            {
+                // 等级1的药材：每3个升级1个
+                upgradeCount = totalHerbCount / 3;
+            }
+            else if (requiredGrade == 2)
+            {
+                // 等级2的药材：每5个升级1个
+                upgradeCount = totalHerbCount / 5;
+            }
+            
+            // 如果没有可升级的数量，直接返回
+            if (upgradeCount <= 0)
+            {
+                return;
+            }
+            
+            // 根据需求等级添加对应的高等级药材
+            if (requiredGrade == 1)
+            {
+                // 添加奇类药材
+                ItemKey newItem = EventHelper.AddItemToRole(playerCharacter, 5, newHerbIdQi, upgradeCount, -1);
+                EventHelper.ShowGetItemPageForItems(
+                    new List<ValueTuple<ItemKey, int>>
+                    {
+                        new ValueTuple<ItemKey, int>(newItem, upgradeCount)
+                    }, 
+                    "", 
+                    this.ArgBox, 
+                    false
+                );
+            }
+            else if (requiredGrade == 2)
+            {
+                // 添加绝类药材
+                ItemKey newItem = EventHelper.AddItemToRole(playerCharacter, 5, newHerbIdJue, upgradeCount, -1);
+                EventHelper.ShowGetItemPageForItems(
+                    new List<ValueTuple<ItemKey, int>>
+                    {
+                        new ValueTuple<ItemKey, int>(newItem, upgradeCount)
+                    }, 
+                    "", 
+                    this.ArgBox, 
+                    false
+                );
+            }
+        }
     }
 }

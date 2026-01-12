@@ -6,119 +6,192 @@ using GameData.Domains.Item;
 using GameData.Domains.TaiwuEvent;
 using GameData.Domains.TaiwuEvent.Enum;
 using GameData.Domains.TaiwuEvent.EventHelper;
+using GameData.Utilities;
 
 namespace Modder_76561198100202539.EventConfig.Taiwu.EventGroup483794014fbc4007b2f13bd8cc1e708e
 {
-	// Token: 0x02000005 RID: 5
-	public class YouFangYiEvent_bb15f5e8069a4ca7b497fa1510e7b671 : TaiwuEventItem
-	{
-		// Token: 0x06000067 RID: 103 RVA: 0x00003AA0 File Offset: 0x00001CA0
-		public YouFangYiEvent_bb15f5e8069a4ca7b497fa1510e7b671()
-		{
-			this.Guid = Guid.Parse("bb15f5e8-069a-4ca7-b497-fa1510e7b671");
-			this.IsHeadEvent = false;
-			this.EventGroup = "CuZhiLing02";
-			this.ForceSingle = false;
-			this.EventType = (EEventType)6;
-			this.TriggerType = EventTrigger.None;
-			this.EventSortingOrder = 500;
-			this.MainRoleKey = "";
-			this.TargetRoleKey = "";
-			this.EventBackground = "";
-			this.MaskControl = 0;
-			this.MaskTweenTime = 0f;
-			this.EscOptionKey = "";
-			this.EventOptions = new TaiwuEventOption[]
-			{
-				new TaiwuEventOption
-				{
-					OptionKey = "Option_-129902647",
-					OptionGuid = "09bbc5d4-fe2b-45cf-b667-499065f53e5c"
-				}
-			};
-			this.InitOptions();
-		}
+    /// <summary>
+    /// 游方医事件 - 药材赠送事件
+    /// 事件ID: bb15f5e8-069a-4ca7-b497-fa1510e7b671
+    /// 功能：赠送特定药材并跳转到下一个事件
+    /// </summary>
+    public class YouFangYiEvent_bb15f5e8069a4ca7b497fa1510e7b671 : TaiwuEventItem
+    {
+        /// <summary>
+        /// 构造函数 - 初始化事件配置
+        /// </summary>
+        public YouFangYiEvent_bb15f5e8069a4ca7b497fa1510e7b671()
+        {
+            // 基础事件配置
+            this.Guid = Guid.Parse("bb15f5e8-069a-4ca7-b497-fa1510e7b671");
+            this.IsHeadEvent = false; // 非头部事件，由其他事件触发
+            this.EventGroup = "YaoCaiShengJi"; // 药材升级事件组
+            this.ForceSingle = false;
+            this.EventType = (EEventType)6;
+            this.TriggerType = EventTrigger.None; // 不直接触发，由其他事件跳转
+            this.EventSortingOrder = 500;
 
-		// Token: 0x06000068 RID: 104 RVA: 0x00003B6C File Offset: 0x00001D6C
-		private void InitOptions()
-		{
-			this.EventOptions[0].OnOptionVisibleCheck = new Func<bool>(this.OnOption1VisibleCheck);
-			this.EventOptions[0].OnOptionAvailableCheck = new Func<bool>(this.OnOption1AvailableCheck);
-			this.EventOptions[0].GetReplacedContent = new Func<string>(this.OnOption1GetReplacedContent);
-			this.EventOptions[0].OnOptionSelect = new Func<string>(this.OnOption1Select);
-			this.EventOptions[0].GetExtraFormatLanguageKeys = new Func<List<string>>(this.Option1GetExtraFormatLanguageKeys);
-			this.EventOptions[0].DefaultState = 0;
-			this.EventOptions[0].OneTimeOnly = false;
-			this.OnOption1Create();
-		}
+            // 角色配置
+            this.MainRoleKey = "";
+            this.TargetRoleKey = "";
 
-		// Token: 0x06000069 RID: 105 RVA: 0x00003C1C File Offset: 0x00001E1C
-		public override bool OnCheckEventCondition()
-		{
-			return true;
-		}
+            // 界面配置
+            this.EventBackground = "";
+            this.MaskControl = 0;
+            this.MaskTweenTime = 0f;
+            this.EscOptionKey = "";
 
-		// Token: 0x0600006A RID: 106 RVA: 0x00002491 File Offset: 0x00000691
-		public override void OnEventEnter()
-		{
-		}
+            // 初始化事件选项（只有一个选项）
+            this.EventOptions = new TaiwuEventOption[]
+            {
+                new TaiwuEventOption
+                {
+                    OptionKey = "Option_-129902647",
+                    OptionGuid = "09bbc5d4-fe2b-45cf-b667-499065f53e5c"
+                }
+            };
 
-		// Token: 0x0600006B RID: 107 RVA: 0x00002491 File Offset: 0x00000691
-		public override void OnEventExit()
-		{
-		}
+            // 初始化选项的回调函数
+            this.InitOptions();
+        }
 
-		// Token: 0x0600006C RID: 108 RVA: 0x00003C30 File Offset: 0x00001E30
-		public override string GetReplacedContentString()
-		{
-			return string.Empty;
-		}
+        /// <summary>
+        /// 初始化选项的回调函数
+        /// </summary>
+        private void InitOptions()
+        {
+            // 选项1初始化
+            this.EventOptions[0].OnOptionVisibleCheck = new Func<bool>(this.OnOption1VisibleCheck);
+            this.EventOptions[0].OnOptionAvailableCheck = new Func<bool>(this.OnOption1AvailableCheck);
+            this.EventOptions[0].GetReplacedContent = new Func<string>(this.OnOption1GetReplacedContent);
+            this.EventOptions[0].OnOptionSelect = new Func<string>(this.OnOption1Select);
+            this.EventOptions[0].GetExtraFormatLanguageKeys =
+                new Func<List<string>>(this.Option1GetExtraFormatLanguageKeys);
+            this.EventOptions[0].DefaultState = 0;
+            this.EventOptions[0].OneTimeOnly = false;
+            this.OnOption1Create();
+        }
 
-		// Token: 0x0600006D RID: 109 RVA: 0x00003C48 File Offset: 0x00001E48
-		public override List<string> GetExtraFormatLanguageKeys()
-		{
-			return null;
-		}
+        /// <summary>
+        /// 检查事件触发条件
+        /// </summary>
+        /// <returns>总是返回true，因为此事件由其他事件直接跳转</returns>
+        public override bool OnCheckEventCondition()
+        {
+            return true;
+        }
 
-		// Token: 0x0600006E RID: 110 RVA: 0x00002491 File Offset: 0x00000691
-		private void OnOption1Create()
-		{
-		}
+        /// <summary>
+        /// 事件进入时执行
+        /// </summary>
+        public override void OnEventEnter()
+        {
+            // 不需要特殊处理
+        }
 
-		// Token: 0x0600006F RID: 111 RVA: 0x00003C5C File Offset: 0x00001E5C
-		private bool OnOption1VisibleCheck()
-		{
-			return true;
-		}
+        /// <summary>
+        /// 事件退出时执行
+        /// </summary>
+        public override void OnEventExit()
+        {
+            // 不需要特殊处理
+        }
 
-		// Token: 0x06000070 RID: 112 RVA: 0x00003C70 File Offset: 0x00001E70
-		private bool OnOption1AvailableCheck()
-		{
-			return true;
-		}
+        /// <summary>
+        /// 获取替换内容字符串
+        /// </summary>
+        /// <returns>空字符串</returns>
+        public override string GetReplacedContentString()
+        {
+            return string.Empty;
+        }
 
-		// Token: 0x06000071 RID: 113 RVA: 0x00003C84 File Offset: 0x00001E84
-		private string OnOption1GetReplacedContent()
-		{
-			return string.Empty;
-		}
+        /// <summary>
+        /// 获取额外的格式语言键
+        /// </summary>
+        /// <returns>额外的语言键列表</returns>
+        public override List<string> GetExtraFormatLanguageKeys()
+        {
+            return null;
+        }
 
-		// Token: 0x06000072 RID: 114 RVA: 0x00003C9C File Offset: 0x00001E9C
-		private string OnOption1Select()
-		{
-			Character character = this.ArgBox.GetCharacter("RoleTaiwu");
-			ItemKey item = EventHelper.AddItemToRole(character, 5, 143, 1, -1);
-			EventHelper.ShowGetItemPageForItems(new List<ValueTuple<ItemKey, int>>
-			{
-				new ValueTuple<ItemKey, int>(item, 1)
-			}, "", this.ArgBox, false);
-			return "ccd5156d-db62-44b1-baf0-3ce42a7e612b";
-		}
+        // ===================== 选项1方法 =====================
 
-		// Token: 0x06000073 RID: 115 RVA: 0x00003CF8 File Offset: 0x00001EF8
-		public List<string> Option1GetExtraFormatLanguageKeys()
-		{
-			return null;
-		}
-	}
+        /// <summary>
+        /// 创建选项1
+        /// </summary>
+        private void OnOption1Create()
+        {
+            // 此选项不需要消耗信息，保持为空
+        }
+
+        /// <summary>
+        /// 检查选项1是否可见
+        /// </summary>
+        /// <returns>总是可见</returns>
+        private bool OnOption1VisibleCheck()
+        {
+            return true;
+        }
+
+        /// <summary>
+        /// 检查选项1是否可用
+        /// </summary>
+        /// <returns>总是可用</returns>
+        private bool OnOption1AvailableCheck()
+        {
+            return true;
+        }
+
+        /// <summary>
+        /// 获取选项1的替换内容
+        /// </summary>
+        /// <returns>空字符串</returns>
+        private string OnOption1GetReplacedContent()
+        {
+            return string.Empty;
+        }
+
+        /// <summary>
+        /// 选项1被选中时执行 - 赠送药材并跳转到下一个事件
+        /// 功能：
+        /// 1. 给玩家添加1个ID为143的药材（药材类型5）
+        /// 2. 显示获得物品界面
+        /// 3. 跳转到下一个事件（GUID: ccd5156d-db62-44b1-baf0-3ce42a7e612b）
+        /// </summary>
+        /// <returns>下一个事件的GUID</returns>
+        private string OnOption1Select()
+        {
+            // 获取玩家角色
+            Character playerCharacter = this.ArgBox.GetCharacter("RoleTaiwu");
+
+            // 给玩家添加药材：类型5，模板ID 143，数量1，无限制
+            ItemKey newItem = EventHelper.AddItemToRole(playerCharacter, 5, 143, 1, -1);
+
+            // 显示获得物品的界面
+            EventHelper.ShowGetItemPageForItems(
+                new List<ValueTuple<ItemKey, int>>
+                {
+                    new ValueTuple<ItemKey, int>(newItem, 1)
+                },
+                "",
+                this.ArgBox,
+                false
+            );
+
+            // 跳转到下一个事件
+            return "ccd5156d-db62-44b1-baf0-3ce42a7e612b";
+        }
+
+        /// <summary>
+        /// 获取选项1的额外格式语言键
+        /// </summary>
+        /// <returns>语言键列表</returns>
+        public List<string> Option1GetExtraFormatLanguageKeys()
+        {
+            return null;
+        }
+
+        
+    }
 }
