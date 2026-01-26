@@ -1,0 +1,77 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <LangVersion>10</LangVersion>
+        <RootNamespace>SoulRingBackend</RootNamespace>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="0Harmony">
+        <HintPath>Libs\0Harmony.dll</HintPath>
+      </Reference>
+      <Reference Include="CompDevLib.Interpreter">
+        <HintPath>Libs\CompDevLib.Interpreter.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData">
+        <HintPath>Libs\GameData.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData.Combat.Math">
+        <HintPath>Libs\GameData.Combat.Math.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData.Common">
+        <HintPath>Libs\GameData.Common.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData.Common.Algorithm">
+        <HintPath>Libs\GameData.Common.Algorithm.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData.Serializer">
+        <HintPath>Libs\GameData.Serializer.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData.Shared">
+        <HintPath>Libs\GameData.Shared.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData.Utilities">
+        <HintPath>Libs\GameData.Utilities.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData.Utilities.Structure">
+        <HintPath>Libs\GameData.Utilities.Structure.dll</HintPath>
+      </Reference>
+      <Reference Include="Mono.Cecil">
+        <HintPath>Libs\Mono.Cecil.dll</HintPath>
+      </Reference>
+      <Reference Include="MonoMod.RuntimeDetour">
+        <HintPath>Libs\MonoMod.RuntimeDetour.dll</HintPath>
+      </Reference>
+      <Reference Include="MonoMod.Utils">
+        <HintPath>Libs\MonoMod.Utils.dll</HintPath>
+      </Reference>
+      <Reference Include="MoonSharp.Interpreter">
+        <HintPath>Libs\MoonSharp.Interpreter.dll</HintPath>
+      </Reference>
+      <Reference Include="NLog">
+        <HintPath>Libs\NLog.dll</HintPath>
+      </Reference>
+      <Reference Include="Redzen">
+        <HintPath>Libs\Redzen.dll</HintPath>
+      </Reference>
+      <Reference Include="Steamworks.NET">
+        <HintPath>Libs\Steamworks.NET.dll</HintPath>
+      </Reference>
+      <Reference Include="TaiwuModdingLib">
+        <HintPath>Libs\TaiwuModdingLib.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.5-beta1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="JsonUtitlity.cs" />
+    </ItemGroup>
+
+</Project>
