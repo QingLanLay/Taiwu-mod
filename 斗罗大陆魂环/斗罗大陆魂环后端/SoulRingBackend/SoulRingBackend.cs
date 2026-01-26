@@ -2,11 +2,13 @@
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using Config;
+using GameData.ArchiveData;
 using GameData.Common;
 using GameData.Domains;
 using GameData.Domains.Character;
 using GameData.Domains.Mod;
 using GameData.Domains.Taiwu;
+using GameData.Domains.TaiwuEvent.EventHelper;
 using GameData.GameDataBridge;
 using GameData.Utilities;
 using HarmonyLib;
@@ -101,7 +103,7 @@ namespace SoulRingBackend
 
             // 清理临时角色
             DomainManager.Building.RemoveTemporaryPossessionCharacter(context);
-
+            
             // 发送消息给前端
             bandendBox.isConverToSoulRingEnd = true;
             NotifyFrontend(bandendBox);
@@ -144,7 +146,8 @@ namespace SoulRingBackend
                 : ((short)context.Random.Next(394, 399)); // 负面特性
 
             // 添加特性
-            CharacterReflection.GetOfflineAddFeatureMethod(taiwu, featureId, true, false);
+            // CharacterReflection.GetOfflineAddFeatureMethod(taiwu, featureId, true, false);
+            EventHelper.AddFeature(taiwu, featureId);
         }
 
 
@@ -164,7 +167,7 @@ namespace SoulRingBackend
         private static void AddCharacterToSlot(DataContext context, int reincarnationCharId, Character taiwu)
         {
             _preexistenceCharIds.Add(context.Random, reincarnationCharId);
-            CharacterReflection.ChangePreexistence(taiwu, _preexistenceCharIds);
+            CharacterReflection.ChangePreexistence(taiwu,context, _preexistenceCharIds);
             AdaptableLog.Info($"魂环：成功添加角色，当前轮回数: {_preexistenceCharIds.Count}");
         }
 
@@ -178,7 +181,7 @@ namespace SoulRingBackend
             DomainManager.Character.RecordDeletedFromOthersPreexistence(context, ref _preexistenceCharIds);
             _preexistenceCharIds.Reset();
             _preexistenceCharIds.Add(context.Random, reincarnationCharId);
-            CharacterReflection.ChangePreexistence(taiwu, _preexistenceCharIds);
+            CharacterReflection.ChangePreexistence(taiwu,context, _preexistenceCharIds);
 
             AdaptableLog.Info($"魂环：列表已重置并添加新角色");
         }

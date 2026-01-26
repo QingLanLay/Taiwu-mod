@@ -1,9 +1,14 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using FrameWork;
+using GameData.Domains;
 using GameData.Domains.Building;
 using GameData.Utilities;
+using HarmonyLib;
+using NPOI.Util;
 using TMPro;
 using UICommon.Character;
 using UnityEngine;
@@ -12,6 +17,9 @@ namespace SoulRingFrontend
 {
     public static class SoulRingUI
     {
+        // 新增：防止重复点击的标志
+        private static bool _isShowingEffect = false;
+
         private static GameObject _swapEditAvatar;
 
         // 新增：魂环角色的Avatar和Name
@@ -27,12 +35,13 @@ namespace SoulRingFrontend
 
         // 化魂阁组件
         private static UI_SwapSoul _swapSoul;
+
         public static UI_SwapSoul SwapSoul
         {
             get => _swapSoul;
             set => _swapSoul = value;
         }
-        
+
 
         // 新选择头像框
         private static GameObject _soulRingAvatarBg;
@@ -193,7 +202,7 @@ namespace SoulRingFrontend
 
                 // 显示选择界面
                 uiManager.ShowUI(selectCharElement);
-                
+
 
                 AdaptableLog.Info("魂环选择界面已打开");
             }
@@ -202,7 +211,7 @@ namespace SoulRingFrontend
                 AdaptableLog.Error($"打开魂环选择界面失败: {ex.Message}\\n{ex.StackTrace}");
             }
         }
-        
+
 
         /// <summary>
         /// 刷新魂环角色显示（完整版）
@@ -211,7 +220,6 @@ namespace SoulRingFrontend
         {
             try
             {
-                
                 AdaptableLog.Info($"刷新魂环角色: {charId}");
 
                 // 1. 更新角色信息
@@ -230,10 +238,10 @@ namespace SoulRingFrontend
 
                 // 3. 更新按钮状态
                 UpdateButtonState(charId);
-        
+
                 // 4. 保存选择
                 SoulRingCharacterId = charId;
-                
+
                 AdaptableLog.Info($"魂环角色已重置: {charId}");
             }
             catch (Exception ex)
@@ -250,10 +258,17 @@ namespace SoulRingFrontend
             if (_soulRingButton == null) return;
 
             bool hasSelected = charId != -1;
-    
-            // 设置交互状态
-            _soulRingButton.interactable = !hasSelected;
-    
+
+            if (hasSelected)
+            {
+                GetRefreshSoulCharacter(SwapSoul);
+                SoulCharacterBg.gameObject.SetActive(false);
+            }
+            else
+            {
+                SoulCharacterBg.gameObject.SetActive(true);
+            }
+
             // 更新按钮外观
             UpdateButtonAppearance(hasSelected);
         }
@@ -266,43 +281,61 @@ namespace SoulRingFrontend
             var buttonText = _soulRingButton.GetComponentInChildren<TextMeshProUGUI>();
             if (buttonText != null)
             {
-                buttonText.text = isSelected ? "已选择魂环" : "选择魂环";
+                buttonText.text = isSelected ? _soulRingCharacterName.Name : "选择魂环";
             }
         }
 
         /// <summary>
         /// 复制确定UI
         /// </summary>
+        // 修改CopySoulEvant方法中的按钮点击事件
         public static void CopySoulEvant()
         {
             _soulEditAvatar = GameObject.Instantiate(_swapEditAvatar, _soulRingAvatarBg.transform);
             var rectTransform = _soulEditAvatar.GetComponent<RectTransform>();
             _soulEditAvatar.name = "EditAvatar";
-            // 设置位置
-            rectTransform.anchoredPosition =  new Vector2(rectTransform.anchoredPosition.x, -150f);
+            rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, -150f);
             _soulEditAvatar.SetActive(true);
-            
+
             // 设置回调方法
             var cButton = _soulEditAvatar.GetComponent<CButton>();
             if (cButton != null)
             {
                 cButton.onClick.RemoveAllListeners();
-                cButton.onClick.AddListener(CallMethod.CallBackendSoulRing);
+                cButton.onClick.AddListener(() =>
+                {
+                    if (!IsShowingEffect)
+                    {
+                        IsShowingEffect = true;
+                        CallMethod.CallBackendSoulRing();
+                        // 2秒后重置标志，防止卡死
+                        SoulRingUI.SwapSoul.StartCoroutine(ResetEffectFlag());
+                    }
+                });
             }
-            
+
             // 从_swapEditAvatar开始，在所有子物体中查找TextMeshProUGUI组件
             TextMeshProUGUI[] allTextComponents = _soulEditAvatar.GetComponentsInChildren<TextMeshProUGUI>(true);
             foreach (var textComponent in allTextComponents)
             {
                 textComponent.text = "化魂转环";
             }
+
             // 修改tip内容
             MouseTipDisplayer mouseTipDisplayer = _soulEditAvatar.GetComponent<MouseTipDisplayer>();
             if (mouseTipDisplayer != null)
             {
                 mouseTipDisplayer.IsLanguageKey = false;
-                mouseTipDisplayer.PresetParam = new string[] {"化魂转环", "选择灵魂附身到自己的轮回之中，成为太吾魂环！" };
+                mouseTipDisplayer.PresetParam = new string[] { "化魂转环", "选择灵魂附身到自己的轮回之中，成为太吾魂环！" };
             }
+        }
+
+        // 新增：重置标志的协程
+        private static IEnumerator ResetEffectFlag()
+        {
+            yield return new WaitForSeconds(3f); // 等待特效完成
+            
+            IsShowingEffect = false;
         }
 
         // 选择的人物
@@ -313,5 +346,31 @@ namespace SoulRingFrontend
             get => _soulCharacterBg;
             set => _soulCharacterBg = value;
         }
+
+        public static bool IsShowingEffect
+        {
+            get => _isShowingEffect;
+            set => _isShowingEffect = value;
+        }
+
+        public static void GetRefreshSoulCharacter(UI_SwapSoul ui_SwapSoul, int charId = -1)
+        {
+            // 获取添加特性方法
+            MethodInfo refreshSoulCharacter = AccessTools.Method(typeof(UI_SwapSoul), "RefreshSoulCharacter",
+                new Type[] { typeof(int) });
+
+            refreshSoulCharacter.Invoke(ui_SwapSoul, new object[] { charId });
+        }
+
+        // 在 SoulRingUI 类中添加这个方法
+        public static void ResetAllStatus()
+        {
+            IsShowingEffect = false;
+            // 如果有正在运行的 DOTween 动画，也建议在这里 Kill 掉
+            // if (SwapSoul != null && SwapSoul.FadeToRedImg != null) SwapSoul.FadeToRedImg.DOKill();
+        }
+        
+        // 在 SoulRingUI.cs 中优化你的协程
+
     }
 }

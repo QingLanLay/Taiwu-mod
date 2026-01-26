@@ -69,6 +69,14 @@ namespace SoulRingFrontend
         public static bool OnClick_Prefix(UI_SwapSoul __instance, CButton btn)
         {
             string btnName = btn.name;
+            
+                        
+            // 如果正在播放特效，拦截所有点击（包括关闭按钮）
+            if (SoulRingUI.IsShowingEffect)
+            {
+                // 可以加一个漂浮提示提示玩家
+                return false; 
+            }
 
             // 处理魂环按钮点击
             if (btnName == "SoulRingCharacter")
@@ -79,6 +87,7 @@ namespace SoulRingFrontend
                 return false; // 跳过原方法
             }
 
+
             return true; // 继续执行原方法
         }
 
@@ -88,6 +97,33 @@ namespace SoulRingFrontend
         {
             SoulRingUI.RefreshSoulRingCharacter(-1);
         }
+        
+        [HarmonyPatch(typeof(UI_SwapSoul), "OnDisable")]
+        [HarmonyPostfix] // 使用 Postfix 确保在基类处理完后执行
+        public static void OnDisable_Postfix()
+        {
+            // 强制重置所有静态变量，防止下次打开时卡死
+            SoulRingUI.ResetAllStatus(); 
+        }
+        
+        [HarmonyPatch(typeof(UI_SwapSoul), "QuickHide")]
+        [HarmonyPrefix]
+        public static bool QuickHide_Prefix()
+        {
+            // 如果正在播放特效或者正在执行逻辑，返回 false 阻止 UI 关闭
+            if (SoulRingUI.IsShowingEffect)
+            {
+                // 这里可以添加一个浮窗提示，告诉玩家“化魂中，请稍候”
+                // UI_MessageManager.Instance.AddText("化魂过程中无法关闭界面"); 
+                return false; 
+            }
+
+            // 如果不在过程中，返回 true，允许执行原版的 QuickHide 逻辑
+            return true;
+        }
+
+
+
         
     }
 }
