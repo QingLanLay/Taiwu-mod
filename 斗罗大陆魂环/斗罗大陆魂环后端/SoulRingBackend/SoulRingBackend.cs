@@ -35,8 +35,37 @@ namespace SoulRingBackend
             DomainManager.Mod.AddModMethod(ModIdStr, "ConvertToSoulRing", ConvertToSoulRing);
         }
 
+
         public override void Dispose() { }
 
+    #region 修改荣誉
+
+        private static int ZoX;
+
+        public override void OnModSettingUpdate()
+        {
+            DomainManager.Mod.GetSetting(base.ModIdStr, "ZoX", ref ZoX);
+        }
+
+
+        public static void ChangeFame(DeadCharacter deadSoul, int ZhengOrXie,DataContext context)
+        {
+            if (ZhengOrXie == 0)
+            {
+                deadSoul.FameType = 6;
+            }
+            else if (ZhengOrXie == 1)
+            {
+                deadSoul.FameType = 0;
+            }
+            else
+            {
+                deadSoul.FameType = 6;
+            }
+            AdaptableLog.Info("Zox:"+ZoX+ " 当前人物："+deadSoul.FullName+" 名誉值："+deadSoul.FameType);
+        }
+
+    #endregion
 
     #region 前传后调用的方法
 
@@ -90,6 +119,8 @@ namespace SoulRingBackend
             // 根据轮回数量执行不同逻辑
             if (_preexistenceCharIds.Count < 9)
             {
+                var character = DomainManager.Character.GetDeadCharacter(reincarnationCharId);
+                ChangeFame(character,ZoX,context);
                 AddCharacterToSlot(context, reincarnationCharId, taiwu);
             }
             else
@@ -103,7 +134,7 @@ namespace SoulRingBackend
 
             // 清理临时角色
             DomainManager.Building.RemoveTemporaryPossessionCharacter(context);
-            
+
             // 发送消息给前端
             bandendBox.isConverToSoulRingEnd = true;
             NotifyFrontend(bandendBox);
@@ -167,7 +198,7 @@ namespace SoulRingBackend
         private static void AddCharacterToSlot(DataContext context, int reincarnationCharId, Character taiwu)
         {
             _preexistenceCharIds.Add(context.Random, reincarnationCharId);
-            CharacterReflection.ChangePreexistence(taiwu,context, _preexistenceCharIds);
+            CharacterReflection.ChangePreexistence(taiwu, context, _preexistenceCharIds);
             AdaptableLog.Info($"魂环：成功添加角色，当前轮回数: {_preexistenceCharIds.Count}");
         }
 
@@ -181,7 +212,7 @@ namespace SoulRingBackend
             DomainManager.Character.RecordDeletedFromOthersPreexistence(context, ref _preexistenceCharIds);
             _preexistenceCharIds.Reset();
             _preexistenceCharIds.Add(context.Random, reincarnationCharId);
-            CharacterReflection.ChangePreexistence(taiwu,context, _preexistenceCharIds);
+            CharacterReflection.ChangePreexistence(taiwu, context, _preexistenceCharIds);
 
             AdaptableLog.Info($"魂环：列表已重置并添加新角色");
         }

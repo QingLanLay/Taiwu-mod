@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <LangVersion>10</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="0Harmony">
+        <HintPath>Libs\0Harmony.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData">
+        <HintPath>Libs\GameData.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData.Combat.Math">
+        <HintPath>Libs\GameData.Combat.Math.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData.Common">
+        <HintPath>Libs\GameData.Common.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData.Common.Algorithm">
+        <HintPath>Libs\GameData.Common.Algorithm.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData.Serializer">
+        <HintPath>Libs\GameData.Serializer.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData.Shared">
+        <HintPath>Libs\GameData.Shared.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData.Utilities">
+        <HintPath>Libs\GameData.Utilities.dll</HintPath>
+      </Reference>
+      <Reference Include="GameData.Utilities.Structure">
+        <HintPath>Libs\GameData.Utilities.Structure.dll</HintPath>
+      </Reference>
+      <Reference Include="TaiwuModdingLib">
+        <HintPath>Libs\TaiwuModdingLib.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+</Project>
